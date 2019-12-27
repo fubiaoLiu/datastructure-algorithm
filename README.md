@@ -1,2 +1,2 @@
 # leetcode
-leetcode练习
+力扣算法练习
