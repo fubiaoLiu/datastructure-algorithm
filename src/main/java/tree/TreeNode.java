@@ -13,4 +13,8 @@ public class TreeNode {
     TreeNode(int x) {
         val = x;
     }
+
+    public boolean hasChild() {
+        return left != null || right != null;
+    }
 }

@@ -6,43 +6,40 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 给定一个二叉树，返回它的中序遍历
+ * 给定一个二叉树，返回它的前序遍历
  * <p>
- * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+ * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
  * <p>
  *
  * @author: FuBiaoLiu
  * @date: 2019/12/30
  */
-public class _94_二叉树的中序遍历 {
+public class _144_二叉树的前序遍历 {
     /**
      * 迭代
      *
      * @param root
      * @return
      */
-    public List<Integer> inorderTraversal1(TreeNode root) {
+    public List<Integer> preorderTraversal1(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) {
             return list;
         }
         Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
-        TreeNode node, tmp;
+        TreeNode node;
         while (!stack.isEmpty()) {
             node = stack.pop();
+            list.add(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
             if (node.left != null) {
-                tmp = node.left;
-                node.left = null;
-                stack.push(node);
-                stack.push(tmp);
-            } else {
-                if (node.right != null) {
-                    stack.push(node.right);
-                }
-                list.add(node.val);
+                stack.push(node.left);
             }
         }
+
         return list;
     }
 
@@ -52,18 +49,18 @@ public class _94_二叉树的中序遍历 {
      * @param root
      * @return
      */
-    public List<Integer> inorderTraversal2(TreeNode root) {
+    public List<Integer> preorderTraversal2(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        inorder(root, list);
+        preorder(root, list);
         return list;
     }
 
-    private void inorder(TreeNode root, List<Integer> list) {
+    private void preorder(TreeNode root, List<Integer> list) {
         if (root == null) {
             return;
         }
-        inorder(root.left, list);
         list.add(root.val);
-        inorder(root.right, list);
+        preorder(root.left, list);
+        preorder(root.right, list);
     }
 }
