@@ -130,4 +130,40 @@ public class TreeNodeUtil {
         node7.right = node9;
         return node1;
     }
+
+    /**
+     * @return
+     */
+    public static TreeNode tree10() {
+        TreeNode node11 = new TreeNode(1);
+        TreeNode node21 = new TreeNode(2);
+        TreeNode node22 = new TreeNode(2);
+        TreeNode node31 = new TreeNode(3);
+        TreeNode node32 = new TreeNode(3);
+        node11.left = node21;
+        node11.right = node22;
+        node21.right = node31;
+        node22.left = node32;
+        return node11;
+    }
+
+    /**
+     * @return
+     */
+    public static TreeNode tree11() {
+        TreeNode node10 = new TreeNode(10);
+        TreeNode node20 = new TreeNode(20);
+        TreeNode node30 = new TreeNode(30);
+        TreeNode node40 = new TreeNode(40);
+        TreeNode node50 = new TreeNode(50);
+        TreeNode node60 = new TreeNode(60);
+        TreeNode node70 = new TreeNode(70);
+        node40.left = node20;
+        node40.right = node60;
+        node20.left = node10;
+        node20.right = node30;
+        node60.left = node50;
+        node60.right = node70;
+        return node40;
+    }
 }

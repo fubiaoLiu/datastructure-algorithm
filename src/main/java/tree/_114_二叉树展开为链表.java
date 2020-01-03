@@ -14,6 +14,11 @@ public class _114_二叉树展开为链表 {
         flattenChild(root);
     }
 
+    /**
+     * 将右子节点拼到左子节点的最末尾节点，然后将左子节点移到右边
+     * @param root
+     * @return
+     */
     public TreeNode flattenChild(TreeNode root) {
         if (root == null) {
             return null;
