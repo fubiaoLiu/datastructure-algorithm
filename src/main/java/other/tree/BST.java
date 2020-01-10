@@ -7,7 +7,7 @@ import java.util.Comparator;
  * @author: FuBiaoLiu
  * @date: 2020/1/9
  */
-public class BST<E> extends BinaryTree {
+public class BST<E> extends BinaryTree<E> {
     private Comparator<E> comparator;
 
     public BST() {
@@ -23,8 +23,9 @@ public class BST<E> extends BinaryTree {
         elementNotNullCheck(element);
 
         if (root == null) {
-            root = new Node<>(element, null);
+            root = createNode(element, null);
             size++;
+            afterAdd(root);
             return;
         }
 
@@ -59,13 +60,23 @@ public class BST<E> extends BinaryTree {
             } while (node != null);
         }
 
-        Node<E> newNode = new Node<>(element, parent);
+        Node<E> newNode = createNode(element, parent);
         if (cmp > 0) {
             parent.right = newNode;
         } else {
             parent.left = newNode;
         }
         size++;
+
+        afterAdd(newNode);
+    }
+
+    public Node<E> createNode(E element, Node<E> parent) {
+        return new Node<>(element, parent);
+    }
+
+    public void afterAdd(Node<E> node) {
+
     }
 
     public void remove(E element) {
@@ -119,6 +130,12 @@ public class BST<E> extends BinaryTree {
                 node.parent.right = replacement;
             }
         }
+
+        afterRemove(node);
+    }
+
+    public void afterRemove(Node<E> node) {
+
     }
 
     private Node<E> preNode(Node<E> node) {

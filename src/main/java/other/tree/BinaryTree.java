@@ -152,49 +152,6 @@ public class BinaryTree<E> implements BinaryTreeInfo {
         return ((Comparable<E>) e1).compareTo(e2);
     }
 
-    private void remove(Node<E> node) {
-        if (node == null) {
-            return;
-        }
-        size--;
-
-        // node度为2
-        if (node.hasTwoChildren()) {
-            Node<E> pre = preNode(node);
-            node.element = pre.element;
-            node = pre;
-        }
-
-        Node<E> replacement = node.left == null ? node.right : node.left;
-        // replacement为空则表示node为叶子节点
-        if (replacement == null) {
-            if (node.parent == null) {
-                root = null;
-            } else if (node.parent.left == node) {
-                node.parent.left = null;
-            } else {
-                node.parent.right = null;
-            }
-        } else {
-            replacement.parent = node.parent;
-            if (node.parent == null) {
-                root = replacement;
-            } else if (node.parent.left == node) {
-                node.parent.left = replacement;
-            } else {
-                node.parent.right = replacement;
-            }
-        }
-    }
-
-    private Node<E> preNode(Node<E> node) {
-        Node<E> pre = node.left;
-        while (pre.right != null) {
-            pre = pre.right;
-        }
-        return pre;
-    }
-
     /**
      * who is the root node
      */
@@ -240,17 +197,26 @@ public class BinaryTree<E> implements BinaryTreeInfo {
 
     protected static class Node<E> {
         E element;
-        Node left;
-        Node right;
-        Node parent;
+        Node<E> left;
+        Node<E> right;
+        Node<E> parent;
 
-        public Node(E element, Node parent) {
+        public Node(E element, Node<E> parent) {
             this.element = element;
             this.parent = parent;
         }
 
         public boolean isLeaf() {
             return left == null && right == null;
+        }
+
+
+        public boolean isLeftChild() {
+            return parent != null && parent.left == this;
+        }
+
+        public boolean isRightChild() {
+            return parent != null && parent.right == this;
         }
 
         public boolean hasTwoChildren() {

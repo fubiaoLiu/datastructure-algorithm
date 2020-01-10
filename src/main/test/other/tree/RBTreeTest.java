@@ -8,29 +8,30 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BSTTest {
+public class RBTreeTest {
     @Test
     public void test_add() {
         Integer data[] = new Integer[]{
                 64, 27, 4, 90, 67, 1, 65, 100, 3, 56, 72, 50, 24, 28, 5, 91, 94, 62, 45, 33
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             System.out.println("【" + data[i] + "】");
-            bst.add(data[i]);
-            BinaryTrees.println(bst);
+            rb.add(data[i]);
+            BinaryTrees.println(rb);
             System.out.println("------------------------------");
         }
+//        BinaryTrees.println(rb);
     }
 
     @Test
     public void test_remove() {
         Integer data[] = new Integer[]{
-                7, 4, 9, 2, 5, 8, 11, 3, 12, 1
+                64, 27, 4, 90, 67, 1, 65, 100, 3, 56, 72, 50, 24, 28, 5, 91, 94, 62, 45, 33
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
@@ -51,7 +52,7 @@ public class BSTTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
@@ -70,7 +71,7 @@ public class BSTTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
@@ -89,14 +90,14 @@ public class BSTTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
         BinaryTrees.println(bst);
         System.out.println("------------------------------");
 
-        bst.preorder(new BST.Visitor<Integer>() {
+        bst.preorder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -111,14 +112,14 @@ public class BSTTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
         BinaryTrees.println(bst);
         System.out.println("------------------------------");
 
-        bst.inorder(new BST.Visitor<Integer>() {
+        bst.inorder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -133,14 +134,14 @@ public class BSTTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
         BinaryTrees.println(bst);
         System.out.println("------------------------------");
 
-        bst.postorder(new BST.Visitor<Integer>() {
+        bst.postorder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -155,14 +156,14 @@ public class BSTTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
         BinaryTrees.println(bst);
         System.out.println("------------------------------");
 
-        bst.levelOrder(new BST.Visitor<Integer>() {
+        bst.levelOrder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -177,7 +178,7 @@ public class BSTTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        BST<Integer> bst = new BST<>();
+        RBTree<Integer> bst = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
@@ -196,7 +197,7 @@ public class BSTTest {
 
     @Test
     public void test_comparator() {
-        BST<Person> bst = new BST<>(new PersonComparator());
+        RBTree<Person> bst = new RBTree<>(new PersonComparator());
         Random random = new Random();
         for (int i = 1; i <= 10; i++) {
             bst.add(new Person("user" + i, random.nextInt(20)));
@@ -204,7 +205,7 @@ public class BSTTest {
         BinaryTrees.println(bst);
         System.out.println("------------------------------");
 
-        bst.inorder(new BST.Visitor<Person>() {
+        bst.inorder(new RBTree.Visitor<Person>() {
             @Override
             public boolean visit(Person element) {
                 System.out.print("[" + element + "]");
