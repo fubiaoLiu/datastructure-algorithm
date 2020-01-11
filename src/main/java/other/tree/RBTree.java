@@ -7,7 +7,7 @@ import java.util.Comparator;
  * @author: FuBiaoLiu
  * @date: 2020/1/10
  */
-public class RBTree<E> extends BST<E> {
+public class RBTree<E> extends BBST<E> {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
 
@@ -32,7 +32,7 @@ public class RBTree<E> extends BST<E> {
         }
         RBNode<E> grand = (RBNode<E>) parent.parent;
         RBNode<E> uncle = sibling(parent);
-        // 父节点是红的
+        // 父节点是红的(B树节点上溢)
         if (isRed(uncle)) {
             // 叔父节点是红的
             black(parent);
@@ -41,28 +41,23 @@ public class RBTree<E> extends BST<E> {
             afterAdd(grand);
         } else {
             // 叔父节点是黑的
+            red(grand);
             if (parent.isLeftChild()) {// L
                 if (node.isLeftChild()) {// LL
                     black(parent);
-                    red(grand);
-                    rotateRight(grand);
                 } else {// LR
                     black(node);
-                    red(grand);
                     rotateLeft(parent);
-                    rotateRight(grand);
                 }
+                rotateRight(grand);
             } else {// R
                 if (node.isLeftChild()) {// RL
                     black(node);
-                    red(grand);
                     rotateRight(parent);
-                    rotateLeft(grand);
                 } else {// RR
                     black(parent);
-                    red(grand);
-                    rotateLeft(grand);
                 }
+                rotateLeft(grand);
             }
         }
 
@@ -70,48 +65,90 @@ public class RBTree<E> extends BST<E> {
 
     @Override
     public void afterRemove(Node<E> node) {
+        // 真正被删除的元素都在叶子节点
+        // 如果被删除的节点 或 用以取代删除节点的子节点是RED，直接染黑
+        if (isRed(node)) {
+            black(node);
+            return;
+        }
 
+        Node<E> parent = node.parent;
+        // 删除的是根节点
+        if (parent == null) {
+            return;
+        }
+
+        // 删除的是BLACK节点(B树节点下溢)
+        // 被删除的节点是左还是右
+        boolean left = parent.left == null || node.isLeftChild();
+        Node<E> sibling = left ? parent.right : parent.left;
+
+        if (left) {// 被删除的节点在左边
+            // sibling是RED，旋转，更换兄弟节点
+            if (isRed(sibling)) {
+                red(parent);
+                black(sibling);
+                rotateLeft(parent);
+                sibling = parent.right;
+            }
+
+            // 此时sibling必然是BLACK
+            if (isBlack(sibling.right) && isBlack(sibling.left)) {
+                // 如果sibling的子节点都是BLACK的，父节点向下跟兄弟节点合并
+                red(sibling);
+                if (isBlack(parent)) {
+                    afterRemove(parent);
+                } else {
+                    black(parent);
+                }
+            } else {
+                // 如果sibling有RED的子节点，就向sibling借
+                if (isRed(sibling.left)) {
+                    rotateRight(sibling);
+                    sibling = parent.right;
+                }
+
+                color(sibling, colorOf(parent));
+                black(parent);
+                black(sibling.right);
+                rotateLeft(parent);
+            }
+        } else {
+            // sibling是RED，旋转，更换兄弟节点
+            if (isRed(sibling)) {
+                red(parent);
+                black(sibling);
+                rotateRight(parent);
+                sibling = parent.left;
+            }
+
+            // 此时sibling必然是BLACK
+            if (isBlack(sibling.left) && isBlack(sibling.right)) {
+                // 如果sibling的子节点都是BLACK的，父节点向下跟兄弟节点合并
+                red(sibling);
+                if (isBlack(parent)) {
+                    afterRemove(parent);
+                } else {
+                    black(parent);
+                }
+            } else {
+                // 如果sibling有RED的子节点，就向sibling借
+                if (isRed(sibling.right)) {
+                    rotateLeft(sibling);
+                    sibling = parent.left;
+                }
+
+                color(sibling, colorOf(parent));
+                black(parent);
+                black(sibling.left);
+                rotateRight(parent);
+            }
+        }
     }
 
     @Override
     public Node<E> createNode(E element, Node<E> parent) {
         return new RBNode(element, parent);
-    }
-
-    private void rotateLeft(Node<E> grand) {
-        Node<E> parent = grand.right;
-        parent.parent = grand.parent;
-        if (grand.isLeftChild()) {
-            grand.parent.left = parent;
-        } else if (grand.isRightChild()) {
-            grand.parent.right = parent;
-        } else {
-            root = parent;
-        }
-        grand.right = parent.left;
-        if (parent.left != null) {
-            parent.left.parent = grand;
-        }
-        parent.left = grand;
-        grand.parent = parent;
-    }
-
-    private void rotateRight(Node<E> grand) {
-        Node<E> parent = grand.left;
-        parent.parent = grand.parent;
-        if (grand.isLeftChild()) {
-            grand.parent.left = parent;
-        } else if (grand.isRightChild()) {
-            grand.parent.right = parent;
-        } else {
-            root = parent;
-        }
-        grand.left = parent.right;
-        if (parent.right != null) {
-            parent.right.parent = grand;
-        }
-        parent.right = grand;
-        grand.parent = parent;
     }
 
     private boolean colorOf(Node<E> node) {

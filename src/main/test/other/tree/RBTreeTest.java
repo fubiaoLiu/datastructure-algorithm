@@ -31,17 +31,17 @@ public class RBTreeTest {
                 64, 27, 4, 90, 67, 1, 65, 100, 3, 56, 72, 50, 24, 28, 5, 91, 94, 62, 45, 33
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
         for (int i = 0; i < data.length; i++) {
             System.out.println("【" + data[i] + "】");
-            bst.remove(data[i]);
-            BinaryTrees.println(bst);
+            rb.remove(data[i]);
+            BinaryTrees.println(rb);
             System.out.println("------------------------------");
         }
     }
@@ -52,17 +52,17 @@ public class RBTreeTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        assertThat(bst.size()).isEqualTo(data.length);
-        bst.clear();
-        BinaryTrees.println(bst);
-        assertThat(bst.size()).isEqualTo(0);
+        assertThat(rb.size()).isEqualTo(data.length);
+        rb.clear();
+        BinaryTrees.println(rb);
+        assertThat(rb.size()).isEqualTo(0);
     }
 
     @Test
@@ -71,17 +71,17 @@ public class RBTreeTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        assertThat(bst.contains(9)).isTrue();
-        assertThat(bst.contains(8)).isTrue();
-        assertThat(bst.contains(11)).isTrue();
-        assertThat(bst.contains(10)).isFalse();
+        assertThat(rb.contains(9)).isTrue();
+        assertThat(rb.contains(8)).isTrue();
+        assertThat(rb.contains(11)).isTrue();
+        assertThat(rb.contains(10)).isFalse();
     }
 
     @Test
@@ -90,14 +90,14 @@ public class RBTreeTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        bst.preorder(new RBTree.Visitor<Integer>() {
+        rb.preorder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -112,14 +112,14 @@ public class RBTreeTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        bst.inorder(new RBTree.Visitor<Integer>() {
+        rb.inorder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -134,14 +134,14 @@ public class RBTreeTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        bst.postorder(new RBTree.Visitor<Integer>() {
+        rb.postorder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -156,14 +156,14 @@ public class RBTreeTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        bst.levelOrder(new RBTree.Visitor<Integer>() {
+        rb.levelOrder(new RBTree.Visitor<Integer>() {
             @Override
             public boolean visit(Integer element) {
                 System.out.print("[" + element + "]");
@@ -178,14 +178,14 @@ public class RBTreeTest {
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
 
-        RBTree<Integer> bst = new RBTree<>();
+        RBTree<Integer> rb = new RBTree<>();
         for (int i = 0; i < data.length; i++) {
-            bst.add(data[i]);
+            rb.add(data[i]);
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        assertThat(bst.height()).isEqualTo(4);
+        assertThat(rb.height()).isEqualTo(4);
     }
 
     private static class PersonComparator implements Comparator<Person> {
@@ -197,15 +197,15 @@ public class RBTreeTest {
 
     @Test
     public void test_comparator() {
-        RBTree<Person> bst = new RBTree<>(new PersonComparator());
+        RBTree<Person> rb = new RBTree<>(new PersonComparator());
         Random random = new Random();
         for (int i = 1; i <= 10; i++) {
-            bst.add(new Person("user" + i, random.nextInt(20)));
+            rb.add(new Person("user" + i, random.nextInt(20)));
         }
-        BinaryTrees.println(bst);
+        BinaryTrees.println(rb);
         System.out.println("------------------------------");
 
-        bst.inorder(new RBTree.Visitor<Person>() {
+        rb.inorder(new RBTree.Visitor<Person>() {
             @Override
             public boolean visit(Person element) {
                 System.out.print("[" + element + "]");
