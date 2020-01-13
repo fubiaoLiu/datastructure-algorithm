@@ -1,4 +1,4 @@
-package other;
+package other.list;
 
 import java.util.StringJoiner;
 
