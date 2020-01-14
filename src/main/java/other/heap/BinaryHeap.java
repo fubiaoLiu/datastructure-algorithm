@@ -9,21 +9,40 @@ import java.util.Comparator;
  * @author: FuBiaoLiu
  * @date: 2020/1/13
  */
-public class BinaryHeap<E> implements BinaryTreeInfo {
+public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
     private E[] elements;
-    private int size;
-    private Comparator<E> comparator;
     private static final int DEFAULT_CAPACITY = 10;
 
     public BinaryHeap() {
-        this(null);
+        this(null, null);
+    }
+
+    public BinaryHeap(E[] data) {
+        this(data, null);
     }
 
     public BinaryHeap(Comparator comparator) {
-        this.comparator = comparator;
-        elements = (E[]) new Object[DEFAULT_CAPACITY];
+        this(null, comparator);
     }
 
+    public BinaryHeap(E[] data, Comparator comparator) {
+        super(comparator);
+
+        if (data != null && data.length != 0) {
+            size = data.length;
+            int capacity = data.length > DEFAULT_CAPACITY ? data.length : DEFAULT_CAPACITY;
+            elements = (E[]) new Object[capacity];
+            for (int i = 0; i < data.length; i++) {
+                elements[i] = data[i];
+            }
+
+            heapify();
+        } else {
+            elements = (E[]) new Object[DEFAULT_CAPACITY];
+        }
+    }
+
+    @Override
     public void add(E element) {
         checkElementNotEmpty(element);
         ensureCapacity(size + 1);
@@ -31,19 +50,13 @@ public class BinaryHeap<E> implements BinaryTreeInfo {
         siftUp(size++);
     }
 
+    @Override
     public E get() {
         checkEmpty();
         return elements[0];
     }
 
-    public int size() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
+    @Override
     public E remove() {
         checkEmpty();
         E root = elements[0];
@@ -55,11 +68,42 @@ public class BinaryHeap<E> implements BinaryTreeInfo {
         return root;
     }
 
+    @Override
     public void clear() {
         for (int i = 0; i < size; i++) {
             elements[i] = null;
         }
-        size = 0;
+        super.clear();
+    }
+
+    @Override
+    public E replace(E element) {
+        checkElementNotEmpty(element);
+        E root = null;
+        if (size == 0) {
+            elements[0] = element;
+            size++;
+        } else {
+            root = elements[0];
+            elements[0] = element;
+            siftDown(0);
+        }
+        return root;
+    }
+
+    /**
+     * 批量建堆
+     */
+    private void heapify() {
+        // 自上而下的上滤
+		/*for (int i = 1; i < size; i++) {
+			siftUp(i);
+		}*/
+
+        // 自下而上的下滤
+        for (int i = (size >> 1) - 1; i >= 0; i--) {
+            siftDown(i);
+        }
     }
 
     private void ensureCapacity(int capacity) {
@@ -119,11 +163,6 @@ public class BinaryHeap<E> implements BinaryTreeInfo {
         elements[index] = element;
     }
 
-    private int compare(E e1, E e2) {
-        return comparator != null ?
-                comparator.compare(e1, e2) : ((Comparable<E>) e1).compareTo(e2);
-    }
-
     private void checkElementNotEmpty(E element) {
         if (element == null) {
             throw new IllegalArgumentException("element must not be empty.");
@@ -175,5 +214,4 @@ public class BinaryHeap<E> implements BinaryTreeInfo {
     public Object string(Object node) {
         return elements[(int) node];
     }
-
 }
