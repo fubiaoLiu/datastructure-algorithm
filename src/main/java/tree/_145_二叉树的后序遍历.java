@@ -1,9 +1,6 @@
 package tree;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 给定一个二叉树，返回它的后序遍历
@@ -15,6 +12,39 @@ import java.util.List;
  * @date: 2019/12/30
  */
 public class _145_二叉树的后序遍历 {
+    /**
+     * 迭代2
+     *
+     * @param root
+     * @return
+     */
+    public List<Integer> postorderTraversal3(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        TreeNode node, preNode = null;
+        while (!stack.isEmpty()) {
+            node = stack.peek();
+            // 当前节点是叶子节点或者前一个遍历的节点是当前节点的子节点
+            if (node.isLeaf() ||
+                    (preNode != null && (node.left == preNode || node.right == preNode))) {
+                list.add(node.val);
+                preNode = stack.pop();
+            } else {
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            }
+        }
+        return list;
+    }
+
     /**
      * 迭代
      *
@@ -72,4 +102,5 @@ public class _145_二叉树的后序遍历 {
         postorder(root.right, list);
         list.add(root.val);
     }
+
 }

@@ -1,9 +1,6 @@
 package tree;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 给定一个二叉树，返回它的前序遍历
@@ -15,6 +12,36 @@ import java.util.List;
  * @date: 2019/12/30
  */
 public class _144_二叉树的前序遍历 {
+    /**
+     * 迭代2
+     *
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal3(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode node = root;
+        while (true) {
+            if (node != null) {
+                list.add(node.val);
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                node = node.left;
+            } else if (!stack.isEmpty()) {
+                node = stack.pop();
+            } else {
+                break;
+            }
+        }
+
+        return list;
+    }
+
     /**
      * 迭代
      *
@@ -63,4 +90,5 @@ public class _144_二叉树的前序遍历 {
         preorder(root.left, list);
         preorder(root.right, list);
     }
+
 }

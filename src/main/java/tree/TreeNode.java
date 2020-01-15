@@ -17,4 +17,8 @@ public class TreeNode {
     public boolean hasChild() {
         return left != null || right != null;
     }
+
+    public boolean isLeaf() {
+        return left == null && right == null;
+    }
 }

@@ -16,6 +16,34 @@ import java.util.List;
  */
 public class _94_二叉树的中序遍历 {
     /**
+     * 迭代2
+     *
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversal3(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode node = root;
+        while (true) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else if (!stack.isEmpty()) {
+                node = stack.pop();
+                list.add(node.val);
+                node = node.right;
+            } else {
+                break;
+            }
+        }
+        return list;
+    }
+
+    /**
      * 迭代
      *
      * @param root
