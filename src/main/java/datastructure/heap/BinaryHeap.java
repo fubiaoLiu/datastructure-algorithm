@@ -120,7 +120,7 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
     }
 
     /**
-     * 上溢
+     * 上滤
      *
      * @param index
      */
@@ -138,7 +138,7 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
     }
 
     /**
-     * 下溢
+     * 下滤
      *
      * @param index
      */
