@@ -13,7 +13,7 @@ package algorithm.bitoperation;
  * @author: FuBiaoLiu
  * @date: 2020/3/12
  */
-public class 其他数都出现了k次的数组中找到只出现一次的数 {
+public class _1_其他数都出现了k次的数组中找到只出现一次的数 {
     /**
      * 找到只出现一次的数
      *
