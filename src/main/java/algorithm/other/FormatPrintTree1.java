@@ -29,7 +29,7 @@ package algorithm.other;
  *              FF
  *              GG
  *      CC
- *              GG
+ *              DD
  *                      HH
  *              EE
  *                      II
