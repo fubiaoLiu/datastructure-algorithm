@@ -14,7 +14,7 @@ package leetcode.tree;
 public class _99_恢复二叉搜索树 {
     private TreeNode n1, n2, lastNode;
 
-    public void recoverTree(TreeNode root) {
+    public void recoverTree1(TreeNode root) {
         inorder(root);
         exchange(n1, n2);
     }
@@ -43,4 +43,76 @@ public class _99_恢复二叉搜索树 {
         node2.val = tmp;
     }
 
+    /**
+     * -------------第三季练习--------------
+     */
+    private TreeNode first, second, last;
+
+    /**
+     * 递归
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     */
+    public void recoverTreeRecursion(TreeNode root) {
+        findWrongNodes(root);
+        swap(first, second);
+    }
+
+    /**
+     * Morris
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(1)
+     */
+    public void recoverTree(TreeNode root) {
+        TreeNode node = root;
+        while (node != null) {
+            if (node.left != null) {
+                // 找到前驱节点(predecessor)
+                TreeNode pred = node.left;
+                while (pred.right != null && pred.right != node) {
+                    pred = pred.right;
+                }
+                if (pred.right == null) {
+                    pred.right = node;
+                    node = node.left;
+                } else {
+                    pred.right = null;
+                    find(node);
+                    node = node.right;
+                }
+            } else {
+                find(node);
+                node = node.right;
+            }
+        }
+        swap(first, second);
+    }
+
+    private void findWrongNodes(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        findWrongNodes(root.left);
+        find(root);
+        findWrongNodes(root.right);
+    }
+
+    private void find(TreeNode root) {
+        if (last != null && root.val < last.val) {
+            if (first == null) {
+                first = last;
+            }
+            second = root;
+        }
+        last = root;
+    }
+
+    private void swap(TreeNode node1, TreeNode node2) {
+        if (node1 == null || node2 == null) {
+            return;
+        }
+        int tmp = node1.val;
+        node1.val = node2.val;
+        node2.val = tmp;
+    }
 }
