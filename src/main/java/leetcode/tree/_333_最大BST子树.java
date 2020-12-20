@@ -68,12 +68,13 @@ public class _333_最大BST子树 {
         return lBst != null ? lBst : rBst;
     }
 
+    /**
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(h)
+     */
     private Info getLargestBSTInfo1(TreeNode root) {
         if (root == null) {
             return null;
-        }
-        if (root.left == null && root.right == null) {
-            return new Info(root, root.val, root.val, 1);
         }
         // 左子树的最大BST子树信息
         Info lBst = getLargestBSTInfo(root.left);
@@ -94,7 +95,9 @@ public class _333_最大BST子树 {
 
         ④ li == null && ri == null
          */
-
+        if (lBst == null && rBst == null) {
+            return new Info(root, root.val, root.val, 1);
+        }
         if (lBst != null && rBst != null) {
             if (lBst.root == root.left && lBst.max < root.val
                     && rBst.root == root.right && rBst.min > root.val) {
