@@ -12,6 +12,10 @@ package leetcode.tree;
  * @date: 2020/1/6
  */
 public class _108_将有序数组转换为二叉搜索树 {
+
+    /**
+     * [l,r]
+     */
     public TreeNode sortedArrayToBST(int[] nums) {
         return nums == null ? null : buildBST(nums, 0, nums.length - 1);
     }
@@ -28,6 +32,24 @@ public class _108_将有序数组转换为二叉搜索树 {
         TreeNode root = new TreeNode(nums[mid]);
         root.left = buildBST(nums, start, mid - 1);
         root.right = buildBST(nums, mid + 1, end);
+        return root;
+    }
+
+    /**
+     * [l,r)
+     */
+    public TreeNode sortedArrayToBST1(int[] nums) {
+        return nums == null ? null : buildBST1(nums, 0, nums.length);
+    }
+
+    private TreeNode buildBST1(int[] nums, int start, int end) {
+        if (start >= end) {
+            return null;
+        }
+        int mid = (start + end) >> 1;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = buildBST1(nums, start, mid);
+        root.right = buildBST1(nums, mid + 1, end);
         return root;
     }
 }

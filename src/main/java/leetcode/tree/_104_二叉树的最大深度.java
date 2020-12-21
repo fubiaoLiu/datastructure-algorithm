@@ -2,6 +2,7 @@ package leetcode.tree;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 给定一个二叉树，找出其最大深度。
@@ -66,4 +67,35 @@ public class _104_二叉树的最大深度 {
         }
         return Math.max(maxDepth2(root.left), maxDepth2(root.right)) + 1;
     }
+
+    /**
+     * 第三季练习：迭代(与maxDepth1思路一致)
+     *
+     * @param root
+     * @return
+     */
+    public int maxDepth3(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int levelCount = 0, level = 0;
+        while (!queue.isEmpty()) {
+            if (levelCount == 0) {
+                levelCount = queue.size();
+                level++;
+            }
+            TreeNode node = queue.poll();
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+            levelCount--;
+        }
+        return level;
+    }
+
 }
