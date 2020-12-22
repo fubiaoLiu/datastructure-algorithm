@@ -14,6 +14,11 @@ public class TreeNodeUtil {
         return new TreeNode(1);
     }
 
+    /**
+     * 1
+     *  \
+     *   2
+     */
     public static TreeNode tree2() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -21,6 +26,11 @@ public class TreeNodeUtil {
         return node1;
     }
 
+    /**
+     *   1
+     *  / \
+     * 2   3
+     */
     public static TreeNode tree3() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -30,6 +40,13 @@ public class TreeNodeUtil {
         return node1;
     }
 
+    /**
+     *   1
+     *  / \
+     * 2   3
+     *      \
+     *       4
+     */
     public static TreeNode tree4() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -42,7 +59,13 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *   1
+     *  / \
+     * 2   3
+     *      \
+     *       4
+     *        \
+     *         5
      */
     public static TreeNode tree5() {
         TreeNode node1 = new TreeNode(1);
@@ -58,7 +81,14 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *     1
+     *   /  \
+     *  2    6
+     *  \   / \
+     *   3 5   7
+     *  /
+     * 4
+     *
      */
     public static TreeNode tree6() {
         TreeNode node1 = new TreeNode(1);
@@ -78,7 +108,10 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *   3
+     *  / \
+     * 1   2
+     *
      */
     public static TreeNode tree7() {
         TreeNode node1 = new TreeNode(1);
@@ -90,7 +123,11 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *     1
+     *    / \
+     *   2   5
+     *  / \   \
+     * 3   4   6
      */
     public static TreeNode tree8() {
         TreeNode node1 = new TreeNode(1);
@@ -108,7 +145,13 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *         1
+     *       /   \
+     *      2     5
+     *     / \   / \
+     *    3   4 6   7
+     *   /           \
+     *  8             9
      */
     public static TreeNode tree9() {
         TreeNode node1 = new TreeNode(1);
@@ -132,7 +175,12 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *     1
+     *    / \
+     *   2   2
+     *  / \
+     * 3   3
+     *
      */
     public static TreeNode tree10() {
         TreeNode node11 = new TreeNode(1);
@@ -148,7 +196,12 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *       40
+     *    /     \
+     *   20     60
+     *  /  \   /  \
+     * 10  30 50  70
+     *
      */
     public static TreeNode tree11() {
         TreeNode node10 = new TreeNode(10);
@@ -168,7 +221,14 @@ public class TreeNodeUtil {
     }
 
     /**
-     * @return
+     *       50
+     *    /     \
+     *   30     70
+     *  /  \   /  \
+     * 20  40 60  80
+     *             \
+     *             90
+     *
      */
     public static TreeNode tree12() {
         TreeNode node10 = new TreeNode(10);
