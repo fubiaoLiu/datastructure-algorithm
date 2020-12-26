@@ -4,7 +4,8 @@ package datastructure.tree.trie;
 import java.util.HashMap;
 
 /**
- * @description: trie
+ * trie
+ *
  * @author FuBiaoLiu
  * @since 2020/1/15
  */

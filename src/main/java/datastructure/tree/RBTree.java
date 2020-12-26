@@ -3,7 +3,8 @@ package datastructure.tree;
 import java.util.Comparator;
 
 /**
- * @description: 红黑树
+ * 红黑树
+ *
  * @author FuBiaoLiu
  * @since 2020/1/10
  */

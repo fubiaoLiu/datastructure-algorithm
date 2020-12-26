@@ -5,7 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @description: 希尔排序
+ * 希尔排序
+ *
  * @author FuBiaoLiu
  * @since 2020/1/17
  */

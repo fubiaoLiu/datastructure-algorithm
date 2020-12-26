@@ -3,7 +3,8 @@ package datastructure.list;
 import java.util.StringJoiner;
 
 /**
- * @description: 优化的动态数组
+ * 优化的动态数组
+ *
  * @author FuBiaoLiu
  * @since 2019/12/28
  */

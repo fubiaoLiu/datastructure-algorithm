@@ -1,7 +1,8 @@
 package datastructure.unionfind;
 
 /**
- * @description: 并查集 - Quick Union
+ * 并查集 - Quick Union
+ *
  * @author FuBiaoLiu
  * @since 2020/1/24
  */

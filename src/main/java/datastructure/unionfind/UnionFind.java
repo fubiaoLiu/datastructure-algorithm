@@ -1,7 +1,8 @@
 package datastructure.unionfind;
 
 /**
- * @description: 并查集抽象类
+ * 并查集抽象类
+ *
  * @author FuBiaoLiu
  * @since 2020/1/24
  */

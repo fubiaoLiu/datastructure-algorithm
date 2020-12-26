@@ -1,7 +1,8 @@
 package algorithm.sort;
 
 /**
- * @description: 冒泡排序：优化1 - 数组全局有序的情况
+ * 冒泡排序：优化1 - 数组全局有序的情况
+ *
  * @author FuBiaoLiu
  * @since 2020/1/16
  */

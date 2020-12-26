@@ -24,7 +24,7 @@ import java.util.List;
  * https://leetcode-cn.com/problems/triangle
  *
  * @author liufb
- * @create: 2020/5/18 11:03
+ * @since2020/5/18 11:03
  **/
 public class _120_三角形最小路径和 {
     public int minimumTotal(List<List<Integer>> triangle) {

@@ -3,7 +3,8 @@ package datastructure.tree;
 import java.util.Comparator;
 
 /**
- * @description: 二叉搜索树2
+ * 二叉搜索树2
+ *
  * @author FuBiaoLiu
  * @since 2020/1/9
  */

@@ -1,7 +1,8 @@
 package algorithm.recursion;
 
 /**
- * @description: 求 n 的阶乘
+ * 求 n 的阶乘
+ *
  * @author FuBiaoLiu
  * @since 2020/2/4
  */

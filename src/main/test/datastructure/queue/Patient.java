@@ -1,7 +1,8 @@
 package datastructure.queue;
 
 /**
- * @description: 病人
+ * 病人
+ *
  * @author FuBiaoLiu
  * @since 2020/1/14
  */

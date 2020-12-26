@@ -3,7 +3,8 @@ package datastructure.heap;
 import java.util.Comparator;
 
 /**
- * @description: 堆抽象类
+ * 堆抽象类
+ *
  * @author FuBiaoLiu
  * @since 2020/1/14
  */

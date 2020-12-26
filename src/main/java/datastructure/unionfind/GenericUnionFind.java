@@ -5,7 +5,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @description: 通用并查集 - 基于Quick Union和Rank、路径减半优化
+ * 通用并查集 - 基于Quick Union和Rank、路径减半优化
+ *
  * @author FuBiaoLiu
  * @since 2020/1/24
  */

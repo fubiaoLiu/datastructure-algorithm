@@ -5,7 +5,8 @@ import datastructure.heap.BinaryHeap;
 import java.util.Comparator;
 
 /**
- * @description: 优先级队列
+ * 优先级队列
+ *
  * @author FuBiaoLiu
  * @since 2020/1/14
  */

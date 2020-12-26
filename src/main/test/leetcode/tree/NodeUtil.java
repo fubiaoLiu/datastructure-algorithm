@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @description: N叉树
+ * N叉树
+ *
  * @author FuBiaoLiu
  * @since 2020/1/2
  */

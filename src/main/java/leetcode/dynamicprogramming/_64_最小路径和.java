@@ -25,7 +25,7 @@ package leetcode.dynamicprogramming;
  * https://leetcode-cn.com/problems/minimum-path-sum
  *
  * @author liufb
- * @create: 2020/5/18 11:03
+ * @since2020/5/18 11:03
  **/
 public class _64_最小路径和 {
     public int minPathSum(int[][] grid) {

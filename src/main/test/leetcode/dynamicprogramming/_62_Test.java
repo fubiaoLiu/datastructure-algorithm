@@ -5,9 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * @description: _62_不同路径测试类
+ * _62_不同路径测试类
+ *
  * @author liufb
- * @create: 2020/5/18 10:32
+ * @since2020/5/18 10:32
  **/
 public class _62_Test {
     _62_不同路径 diffPath = new _62_不同路径();

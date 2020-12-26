@@ -1,7 +1,8 @@
 package algorithm.sort;
 
 /**
- * @description: 插入排序: 优化1 - 挪动代替交换
+ * 插入排序: 优化1 - 挪动代替交换
+ *
  * @author FuBiaoLiu
  * @since 2020/1/17
  */

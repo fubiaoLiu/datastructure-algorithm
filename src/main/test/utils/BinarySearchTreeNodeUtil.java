@@ -3,7 +3,8 @@ package utils;
 import leetcode.tree.TreeNode;
 
 /**
- * @description: 二叉搜索树
+ * 二叉搜索树
+ *
  * @author FuBiaoLiu
  * @since 2020/1/2
  */

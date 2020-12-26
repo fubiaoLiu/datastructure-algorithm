@@ -1,7 +1,8 @@
 package algorithm.sort;
 
 /**
- * @description: 冒泡排序
+ * 冒泡排序
+ *
  * @author FuBiaoLiu
  * @since 2020/1/16
  */

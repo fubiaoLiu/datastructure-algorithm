@@ -5,9 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * @description: _64_最小路径和测试类
+ * _64_最小路径和测试类
+ *
  * @author liufb
- * @create: 2020/5/18 10:32
+ * @since2020/5/18 10:32
  **/
 public class _64_Test {
     _64_最小路径和 minPath = new _64_最小路径和();

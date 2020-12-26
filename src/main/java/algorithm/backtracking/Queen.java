@@ -1,7 +1,8 @@
 package algorithm.backtracking;
 
 /**
- * @description: 八皇后问题
+ * 八皇后问题
+ *
  * @author FuBiaoLiu
  * @since 2020/2/4
  */

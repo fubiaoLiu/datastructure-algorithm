@@ -1,7 +1,8 @@
 package algorithm.backtracking;
 
 /**
- * @description: 八皇后问题 - 优化1 - 使用布尔数组记录每一列每一条斜线是否已存在皇后
+ * 八皇后问题 - 优化1 - 使用布尔数组记录每一列每一条斜线是否已存在皇后
+ *
  * @author FuBiaoLiu
  * @since 2020/2/4
  */

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @description: 格式化打印菜单树2 - 借助 Map、List实现，时间复杂度为 O(2n) -> O(n)
+ * 格式化打印菜单树2 - 借助 Map、List实现，时间复杂度为 O(2n) -> O(n)
  * 给定一组数据：
  * {
  *     (1,0,"AA")
@@ -37,8 +37,9 @@ import java.util.Map;
  *                      HH
  *              EE
  *                      II
+ *
  * @author liufb
- * @create: 2020/6/22 9:27
+ * @since2020/6/22 9:27
  **/
 public class FormatPrintTree2 {
     private static final String TAB = "    ";

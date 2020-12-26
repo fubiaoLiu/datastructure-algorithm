@@ -7,7 +7,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @description: 二叉搜索树
+ * 二叉搜索树
+ *
  * @author FuBiaoLiu
  * @since 2020/1/9
  */

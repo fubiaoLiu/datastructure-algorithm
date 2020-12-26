@@ -1,7 +1,8 @@
 package algorithm.sort;
 
 /**
- * @description: 插入排序
+ * 插入排序
+ *
  * @author FuBiaoLiu
  * @since 2020/1/17
  */

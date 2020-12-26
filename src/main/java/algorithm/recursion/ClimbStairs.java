@@ -1,8 +1,9 @@
 package algorithm.recursion;
 
 /**
- * @description: 上楼梯(跳台阶)
+ * 上楼梯(跳台阶)
  * 楼梯有 n 阶台阶，上楼可以一步上 1 阶，也可以一步上 2 阶，走完 n 阶台阶共有多少种不同的走法？
+ *
  * @author FuBiaoLiu
  * @since 2020/2/3
  */

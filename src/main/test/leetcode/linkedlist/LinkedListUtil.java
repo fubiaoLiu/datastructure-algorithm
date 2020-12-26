@@ -1,7 +1,8 @@
 package leetcode.linkedlist;
 
 /**
- * @description: 链表工具类
+ * 链表工具类
+ *
  * @author FuBiaoLiu
  * @since 2020/1/14
  */

@@ -1,7 +1,8 @@
 package algorithm.recursion;
 
 /**
- * @description: 斐波那契数列
+ * 斐波那契数列
+ *
  * @author FuBiaoLiu
  * @since 2020/2/3
  */

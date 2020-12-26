@@ -1,7 +1,8 @@
 package algorithm.sort;
 
 /**
- * @description: 快速排序
+ * 快速排序
+ *
  * @author FuBiaoLiu
  * @since 2020/1/17
  */

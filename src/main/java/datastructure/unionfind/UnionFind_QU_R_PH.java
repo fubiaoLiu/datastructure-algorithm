@@ -1,7 +1,8 @@
 package datastructure.unionfind;
 
 /**
- * @description: 并查集 - Quick Union - Rank优化 - 路径减半优化
+ * 并查集 - Quick Union - Rank优化 - 路径减半优化
+ *
  * @author FuBiaoLiu
  * @since 2020/1/24
  */

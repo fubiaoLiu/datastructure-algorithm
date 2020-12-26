@@ -1,7 +1,8 @@
 package datastructure.heap;
 
 /**
- * @description: 堆顶层接口
+ * 堆顶层接口
+ *
  * @author FuBiaoLiu
  * @since 2020/1/14
  */

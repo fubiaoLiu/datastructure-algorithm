@@ -1,7 +1,8 @@
 package algorithm.sort;
 
 /**
- * @description: 冒泡排序：优化2 - 数组局部有序的情况
+ * 冒泡排序：优化2 - 数组局部有序的情况
+ *
  * @author FuBiaoLiu
  * @since 2020/1/16
  */

@@ -3,7 +3,8 @@ package algorithm.sort;
 import java.text.DecimalFormat;
 
 /**
- * @description: 排序顶层父类
+ * 排序顶层父类
+ *
  * @author FuBiaoLiu
  * @since 2020/1/17
  */

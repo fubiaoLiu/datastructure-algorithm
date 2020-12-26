@@ -1,40 +1,41 @@
 package algorithm.other;
 
 /**
- * @description: 格式化打印菜单树1 - 递归遍历子节点，直接打印，时间复杂度为 O(n^2 + n) -> O(n^2)，print打印方法的复杂度约为 O(nlogh)
+ * 格式化打印菜单树1 - 递归遍历子节点，直接打印，时间复杂度为 O(n^2 + n) -> O(n^2)，print打印方法的复杂度约为 O(nlogh)
  * 给定一组数据：
  * ("id","pid","name")
  * {
- *     (1,0,"AA")
- *     (2,1,"BB")
- *     (3,1,"CC")
- *     (4,3,"DD")
- *     (5,3,"EE")
- *     (6,2,"FF")
- *     (7,2,"GG")
- *     (8,4,"HH")
- *     (9,5,"II")
+ * (1,0,"AA")
+ * (2,1,"BB")
+ * (3,1,"CC")
+ * (4,3,"DD")
+ * (5,3,"EE")
+ * (6,2,"FF")
+ * (7,2,"GG")
+ * (8,4,"HH")
+ * (9,5,"II")
  * }
- *
+ * <p>
  * 和数据结构:
  * Node{
- *     Integer id;
- *     Integer parentId;
- *     String name;
+ * Integer id;
+ * Integer parentId;
+ * String name;
  * }
- *
+ * <p>
  * 要求按以下格式输出：
  * AA
- *      BB
- *              FF
- *              GG
- *      CC
- *              DD
- *                      HH
- *              EE
- *                      II
+ * BB
+ * FF
+ * GG
+ * CC
+ * DD
+ * HH
+ * EE
+ * II
+ *
  * @author liufb
- * @create: 2020/6/22 9:27
+ * @since2020/6/22 9:27
  **/
 public class FormatPrintTree1 {
     public static void main(String[] args) {
@@ -83,7 +84,7 @@ public class FormatPrintTree1 {
     /**
      * 打印
      *
-     * @param name     node名称
+     * @param name           node名称
      * @param indentationNum 缩进数量
      */
     private void print(String name, int indentationNum) {

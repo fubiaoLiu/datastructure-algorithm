@@ -5,7 +5,8 @@ import datastructure.tree.printer.BinaryTreeInfo;
 import java.util.Comparator;
 
 /**
- * @description: 二叉堆
+ * 二叉堆
+ *
  * @author FuBiaoLiu
  * @since 2020/1/13
  */
