@@ -10,8 +10,8 @@ package algorithm.bitoperation;
  * 第i位上无进位相加的结果就是(c(i)+d(i))%k。那么，如果k个相同的k进制数进行无进位相加之，
  * 相加的结果一定是每一位上都为0的k进制数。
  *
- * @author: FuBiaoLiu
- * @date: 2020/3/12
+ * @author FuBiaoLiu
+ * @since 2020/3/12
  */
 public class _1_其他数都出现了k次的数组中找到只出现一次的数 {
     /**

@@ -13,6 +13,8 @@ import java.util.LinkedList;
  * 输出：7 -> 0 -> 8
  * 原因：342 + 465 = 807
  * <p>
+ * Related Topics 链表 数学
+ * <p>
  * https://leetcode-cn.com/problems/add-two-numbers/
  *
  * @author FuBiaoLiu
@@ -52,5 +54,63 @@ public class _2_两数相加 {
         }
 
         return result;
+    }
+
+    public LinkedList<Integer> add1(LinkedList<Integer> list1, LinkedList<Integer> list2) {
+        if (list1 == null) {
+            return list2;
+        }
+        if (list2 == null) {
+            return list1;
+        }
+        LinkedList<Integer> dummyHead = new LinkedList<>();
+        int carry = 0;
+        int i1, i2, sum;
+        while (!list1.isEmpty() || !list2.isEmpty()) {
+            i1 = list1.isEmpty() ? 0 : list1.poll();
+            i2 = list2.isEmpty() ? 0 : list2.poll();
+            sum = i1 + i2 + carry;
+            carry = sum / 10;
+            dummyHead.addLast(carry % sum);
+        }
+        return dummyHead;
+    }
+
+    /**
+     * 使用虚拟头节点
+     *
+     * @param l1 数1
+     * @param l2 数2
+     * @return 结果
+     */
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        ListNode dummyHead = new ListNode(0);
+        ListNode tail = dummyHead;
+        int carry = 0, sum, i1, i2;
+        while (l1 != null || l2 != null) {
+            i1 = 0;
+            i2 = 0;
+            if (l1 != null) {
+                i1 = l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                i2 = l2.val;
+                l2 = l2.next;
+            }
+            sum = i1 + i2 + carry;
+            carry = sum / 10;
+            tail = tail.next = new ListNode(sum % 10);
+        }
+        if (carry > 0) {
+            tail.next = new ListNode(carry);
+        }
+        return dummyHead.next;
     }
 }

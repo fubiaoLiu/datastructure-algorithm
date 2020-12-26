@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 /**
  * @description: trie
- * @author: FuBiaoLiu
- * @date: 2020/1/15
+ * @author FuBiaoLiu
+ * @since 2020/1/15
  */
 public class Trie<V> {
     private Node<V> root;

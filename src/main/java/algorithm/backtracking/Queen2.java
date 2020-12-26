@@ -2,8 +2,8 @@ package algorithm.backtracking;
 
 /**
  * @description: 八皇后问题 - 优化2 - 使用位运算进一步压缩八皇后的空间复杂度（需要根据皇后数量使用合适的数据类型，8皇后可以使用byte，皇后数量超过64可以使用long数组）
- * @author: FuBiaoLiu
- * @date: 2020/2/4
+ * @author FuBiaoLiu
+ * @since 2020/2/4
  */
 public class Queen2 {
     private static final int QUEEN_NUM = 8;

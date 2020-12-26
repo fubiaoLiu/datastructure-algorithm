@@ -7,8 +7,8 @@ import java.util.Comparator;
  * 最高层的层数是 log1/p(n)，平均有个 1/p 元素
  * 在搜索时，每一层链表的预期查找步数最多是 1/p，所以总的查找步数是 –logp(n/p)，时间复杂度是O(logn)
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/7
+ * @author FuBiaoLiu
+ * @since 2020/2/7
  */
 public class SkipList<K, V> {
     private static final int MAX_LEVEL = 32;

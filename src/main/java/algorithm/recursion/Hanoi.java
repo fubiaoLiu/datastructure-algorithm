@@ -5,8 +5,8 @@ package algorithm.recursion;
  * 把 A 的 n 个盘子移动到 C（盘子编号是 [1, n] ）
  * 每次只能移动1个盘子
  * 大盘子只能放在小盘子下面
- * @author: FuBiaoLiu
- * @date: 2020/2/3
+ * @author FuBiaoLiu
+ * @since 2020/2/3
  */
 public class Hanoi {
     /**

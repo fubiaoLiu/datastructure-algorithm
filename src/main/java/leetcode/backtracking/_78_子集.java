@@ -23,10 +23,12 @@ import java.util.List;
  *   []
  * ]
  * <p>
+ * Related Topics 位运算 数组 回溯算法
+ * <p>
  * https://leetcode-cn.com/problems/subsets
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/5
+ * @author FuBiaoLiu
+ * @since 2020/2/5
  */
 public class _78_子集 {
     private int[] nums;
@@ -45,7 +47,7 @@ public class _78_子集 {
     }
 
     private void subsets(int index, Deque<Integer> selected) {
-        if (index >= len){
+        if (index >= len) {
             return;
         }
         if (index == len - 1) {

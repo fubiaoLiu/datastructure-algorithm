@@ -6,8 +6,8 @@ import java.util.Objects;
 
 /**
  * @description: 通用并查集 - 基于Quick Union和Rank、路径减半优化
- * @author: FuBiaoLiu
- * @date: 2020/1/24
+ * @author FuBiaoLiu
+ * @since 2020/1/24
  */
 public class GenericUnionFind<E> {
     private Map<E, Node<E>> nodes = new HashMap<>();

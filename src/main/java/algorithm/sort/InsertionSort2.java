@@ -2,8 +2,8 @@ package algorithm.sort;
 
 /**
  * @description: 插入排序: 优化2 - 使用二分搜索定位插入位置
- * @author: FuBiaoLiu
- * @date: 2020/1/17
+ * @author FuBiaoLiu
+ * @since 2020/1/17
  */
 public class InsertionSort2<E extends Comparable<E>> extends Sort<E> {
     @Override

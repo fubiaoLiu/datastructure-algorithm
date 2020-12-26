@@ -18,10 +18,18 @@ import java.util.*;
  * [2,2,3]
  * ]
  * <p>
+ * 提示：
+ * 1 <= candidates.length <= 30
+ * 1 <= candidates[i] <= 200
+ * candidate 中的每个元素都是独一无二的。
+ * 1 <= target <= 500
+ * <p>
+ * Related Topics 数组 回溯算法
+ * <p>
  * https://leetcode-cn.com/problems/combination-sum
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/5
+ * @author FuBiaoLiu
+ * @since 2020/2/5
  */
 public class _39_组合总和 {
     private int[] candidates;

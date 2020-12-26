@@ -12,6 +12,8 @@ package leetcode.characterstring;
  * <p>
  * 提示：你可以假定该字符串只包含小写字母。
  * <p>
+ * Related Topics 哈希表 字符串
+ * <p>
  * https://leetcode-cn.com/problems/first-unique-character-in-a-string/
  *
  * @author FuBiaoLiu

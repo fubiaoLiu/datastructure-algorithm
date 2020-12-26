@@ -5,8 +5,8 @@ import java.util.Arrays;
 /**
  * @description: 零钱兑换
  * 假设有 25 分、10 分、5 分、1 分的硬币，现要找给客户 41 分的零钱，如何办到硬币个数最少？
- * @author: FuBiaoLiu
- * @date: 2020/2/4
+ * @author FuBiaoLiu
+ * @since 2020/2/4
  */
 public class CoinChange {
     /**

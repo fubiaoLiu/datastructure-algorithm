@@ -4,8 +4,8 @@ package algorithm.dynamicprogramming;
  * 最长公共子串
  * 子串是连续的子序列
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/6
+ * @author FuBiaoLiu
+ * @since 2020/2/6
  */
 public class LongestCommonSubstring {
     /**

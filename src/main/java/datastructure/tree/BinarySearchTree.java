@@ -8,8 +8,8 @@ import java.util.Queue;
 
 /**
  * @description: 二叉搜索树
- * @author: FuBiaoLiu
- * @date: 2020/1/9
+ * @author FuBiaoLiu
+ * @since 2020/1/9
  */
 @SuppressWarnings("unchecked")
 public class BinarySearchTree<E> implements BinaryTreeInfo {

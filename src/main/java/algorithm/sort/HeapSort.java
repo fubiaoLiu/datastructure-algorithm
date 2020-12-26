@@ -2,8 +2,8 @@ package algorithm.sort;
 
 /**
  * @description: 堆排序
- * @author: FuBiaoLiu
- * @date: 2020/1/17
+ * @author FuBiaoLiu
+ * @since 2020/1/17
  */
 public class HeapSort<E extends Comparable<E>> extends Sort<E> {
     private int heapSize;

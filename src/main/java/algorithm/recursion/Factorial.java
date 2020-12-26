@@ -2,8 +2,8 @@ package algorithm.recursion;
 
 /**
  * @description: 求 n 的阶乘
- * @author: FuBiaoLiu
- * @date: 2020/2/4
+ * @author FuBiaoLiu
+ * @since 2020/2/4
  */
 public class Factorial {
     /**

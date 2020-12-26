@@ -37,7 +37,7 @@ import java.util.Map;
  *                      HH
  *              EE
  *                      II
- * @author: liufb
+ * @author liufb
  * @create: 2020/6/22 9:27
  **/
 public class FormatPrintTree2 {

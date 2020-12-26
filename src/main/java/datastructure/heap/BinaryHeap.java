@@ -6,8 +6,8 @@ import java.util.Comparator;
 
 /**
  * @description: 二叉堆
- * @author: FuBiaoLiu
- * @date: 2020/1/13
+ * @author FuBiaoLiu
+ * @since 2020/1/13
  */
 public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
     private E[] elements;

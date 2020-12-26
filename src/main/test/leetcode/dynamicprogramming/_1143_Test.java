@@ -13,5 +13,7 @@ public class _1143_Test {
         assertThat(lcs.longestCommonSubsequence2("abcde", "ace")).isEqualTo(3);
         assertThat(lcs.longestCommonSubsequence3("abcde", "ace")).isEqualTo(3);
         assertThat(lcs.longestCommonSubsequence("abcde", "ace")).isEqualTo(3);
+        assertThat(lcs.longestCommonSubsequence4("abcde", "ace")).isEqualTo(3);
+        assertThat(lcs.longestCommonSubsequence5("abcde", "ace")).isEqualTo(3);
     }
 }

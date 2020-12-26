@@ -6,8 +6,8 @@ import java.util.Comparator;
 
 /**
  * @description: 优先级队列
- * @author: FuBiaoLiu
- * @date: 2020/1/14
+ * @author FuBiaoLiu
+ * @since 2020/1/14
  */
 public class PriorityQueue<E> {
     BinaryHeap<E> heap;

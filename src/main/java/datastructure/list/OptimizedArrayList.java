@@ -4,8 +4,8 @@ import java.util.StringJoiner;
 
 /**
  * @description: 优化的动态数组
- * @author: FuBiaoLiu
- * @date: 2019/12/28
+ * @author FuBiaoLiu
+ * @since 2019/12/28
  */
 public class OptimizedArrayList<E> {
     private static int DEFAULT_CAPACITY = 10;

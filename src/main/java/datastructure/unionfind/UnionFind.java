@@ -2,8 +2,8 @@ package datastructure.unionfind;
 
 /**
  * @description: 并查集抽象类
- * @author: FuBiaoLiu
- * @date: 2020/1/24
+ * @author FuBiaoLiu
+ * @since 2020/1/24
  */
 public abstract class UnionFind {
     protected int[] parents;

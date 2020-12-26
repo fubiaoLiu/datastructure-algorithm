@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * @description: N叉树
- * @author: FuBiaoLiu
- * @date: 2020/1/2
+ * @author FuBiaoLiu
+ * @since 2020/1/2
  */
 public class NodeUtil {
     public static Node tree0() {

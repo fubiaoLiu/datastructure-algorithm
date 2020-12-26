@@ -4,9 +4,10 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * @description: 使用递归和迭代两种方式计算二叉树的高度
- * @author: FuBiaoLiu
- * @date: 2019/12/31
+ * 使用递归和迭代两种方式计算二叉树的高度
+ *
+ * @author FuBiaoLiu
+ * @since 2019/12/31
  */
 public class 计算二叉树的高度 {
     /**

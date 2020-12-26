@@ -6,8 +6,8 @@ package algorithm.search;
  * 的值比待查关键字大，则在前半部分循环这个查找的过程，如果中间位置的值比待查关键字小，
  * 则在后半部分循环这个查找的过程。直到查找到了为止，否则序列中没有待查的关键字。
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/16
+ * @author FuBiaoLiu
+ * @since 2020/2/16
  */
 public class BinarySearch {
     public static void main(String[] args) {

@@ -22,10 +22,12 @@ package leetcode.dynamicprogramming;
  * 输出：0
  * 解释：两个字符串没有公共子序列，返回 0。
  * <p>
+ * Related Topics 动态规划
+ * <p>
  * https://leetcode-cn.com/problems/longest-common-subsequence
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/6
+ * @author FuBiaoLiu
+ * @since 2020/2/6
  */
 public class _1143_最长公共子序列 {
     /**
@@ -167,5 +169,47 @@ public class _1143_最长公共子序列 {
         return Math.max(
                 lcs(chars1, index1 - 1, chars2, index2),
                 lcs(chars1, index1, chars2, index2 - 1));
+    }
+
+    // ----------------------------第三季练习-------------------------------
+    public int longestCommonSubsequence4(String text1, String text2) {
+        if (text1 == null || text1.length() == 0 || text2 == null || text2.length() == 0) {
+            return 0;
+        }
+        char[] chars1 = text1.toCharArray();
+        char[] chars2 = text2.toCharArray();
+        int[][] dp = new int[chars1.length + 1][chars2.length + 1];
+        for (int i = 1; i <= chars1.length; i++) {
+            for (int j = 1; j <= chars2.length; j++) {
+                if (chars1[i - 1] == chars2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+                }
+            }
+        }
+        return dp[chars1.length][chars2.length];
+    }
+
+    public int longestCommonSubsequence5(String text1, String text2) {
+        if (text1 == null || text1.length() == 0 || text2 == null || text2.length() == 0) {
+            return 0;
+        }
+        char[] chars1 = text1.toCharArray();
+        char[] chars2 = text2.toCharArray();
+        int[] dp = new int[chars2.length + 1];
+        for (int i = 1; i <= chars1.length; i++) {
+            int leftTop = 0;
+            for (int j = 1; j <= chars2.length; j++) {
+                int tmp = dp[j];
+                if (chars1[i - 1] == chars2[j - 1]) {
+                    dp[j] = leftTop + 1;
+                } else {
+                    dp[j] = Math.max(dp[j - 1], dp[j]);
+                }
+                leftTop = tmp;
+            }
+        }
+        return dp[chars2.length];
     }
 }

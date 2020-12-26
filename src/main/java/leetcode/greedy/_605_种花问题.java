@@ -18,10 +18,12 @@ package leetcode.greedy;
  * 输入的数组长度范围为 [1, 20000]。
  * n 是非负整数，且不会超过输入数组的大小。
  * <p>
+ * Related Topics 贪心算法 数组
+ * <p>
  * https://leetcode-cn.com/problems/can-place-flowers
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/5
+ * @author FuBiaoLiu
+ * @since 2020/2/5
  */
 public class _605_种花问题 {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {

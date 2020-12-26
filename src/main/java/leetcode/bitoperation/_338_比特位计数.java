@@ -11,15 +11,23 @@ package leetcode.bitoperation;
  * 输入: 5
  * 输出: [0,1,1,2,1,2]
  * <p>
+ * 进阶:
+ * 给出时间复杂度为O(n*sizeof(integer))的解答非常容易。但你可以在线性时间O(n)内用一趟扫描做到吗？
+ * 要求算法的空间复杂度为O(n)。
+ * 你能进一步完善解法吗？要求在C++或任何其他语言中不使用任何内置函数（如 C++ 中的 __builtin_popcount）来执行此操作。
+ * <p>
+ * Related Topics 位运算 动态规划
+ * <p>
  * https://leetcode-cn.com/problems/counting-bits
  *
- * @author: FuBiaoLiu
- * @date: 2020/3/31
+ * @author FuBiaoLiu
+ * @since 2020/3/31
  */
 public class _338_比特位计数 {
     /**
      * 方法一
      * i & (i - 1)可以去掉i最右边的一个1（如果有），因此 i & (i - 1）是比 i 小的，而且i & (i - 1)的1的个数已经在前面算过了，所以i的1的个数就是 i & (i - 1)的1的个数加上1
+     *
      * @param num
      * @return
      */

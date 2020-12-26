@@ -1,11 +1,13 @@
-package leetcode.tree;
+package utils;
+
+import leetcode.tree.TreeNode;
 
 /**
- * @description: 二叉树
- * @author: FuBiaoLiu
- * @date: 2020/1/2
+ * @description: 二叉搜索树
+ * @author FuBiaoLiu
+ * @since 2020/1/2
  */
-public class TreeNodeUtil {
+public class BinarySearchTreeNodeUtil {
     public static TreeNode tree0() {
         return null;
     }
@@ -15,57 +17,75 @@ public class TreeNodeUtil {
     }
 
     /**
-     * 1
-     *  \
-     *   2
+     * 两个节点被错误交换的二叉搜索树
+     *
+     * @return
      */
     public static TreeNode tree2() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
-        node1.right = node2;
-        return node1;
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        node4.left = node2;
+        node4.right = node7;
+        node2.left = node1;
+        node2.right = node3;
+        node7.left = node5;
+        node7.right = node6;
+        return node4;
     }
 
     /**
-     *   1
-     *  / \
-     * 2   3
+     * 两个节点被错误交换的二叉搜索树
+     *
+     * @return
      */
     public static TreeNode tree3() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
-        node1.left = node2;
-        node1.right = node3;
-        return node1;
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        node4.left = node2;
+        node4.right = node6;
+        node2.left = node1;
+        node2.right = node3;
+        node6.left = node7;
+        node6.right = node5;
+        return node4;
     }
 
     /**
-     *   1
-     *  / \
-     * 2   3
-     *      \
-     *       4
+     * 两个节点被错误交换的二叉搜索树
+     *
+     * @return
      */
     public static TreeNode tree4() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
         TreeNode node4 = new TreeNode(4);
-        node1.left = node2;
-        node1.right = node3;
-        node3.right = node4;
-        return node1;
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        node5.left = node2;
+        node5.right = node6;
+        node2.left = node1;
+        node2.right = node3;
+        node6.left = node4;
+        node6.right = node7;
+        return node5;
     }
 
     /**
-     *   1
-     *  / \
-     * 2   3
-     *      \
-     *       4
-     *        \
-     *         5
+     * 两个节点被错误交换的二叉搜索树
+     *
+     * @return
      */
     public static TreeNode tree5() {
         TreeNode node1 = new TreeNode(1);
@@ -73,22 +93,20 @@ public class TreeNodeUtil {
         TreeNode node3 = new TreeNode(3);
         TreeNode node4 = new TreeNode(4);
         TreeNode node5 = new TreeNode(5);
-        node1.left = node2;
-        node1.right = node3;
-        node3.right = node4;
-        node4.right = node5;
-        return node1;
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        node4.left = node2;
+        node4.right = node6;
+        node2.left = node7;
+        node2.right = node3;
+        node6.left = node5;
+        node6.right = node1;
+        return node4;
     }
 
+
     /**
-     *     1
-     *   /  \
-     *  2    6
-     *  \   / \
-     *   3 5   7
-     *  /
-     * 4
-     *
+     * @return
      */
     public static TreeNode tree6() {
         TreeNode node1 = new TreeNode(1);
@@ -108,10 +126,7 @@ public class TreeNodeUtil {
     }
 
     /**
-     *   3
-     *  / \
-     * 1   2
-     *
+     * @return
      */
     public static TreeNode tree7() {
         TreeNode node1 = new TreeNode(1);
@@ -123,11 +138,7 @@ public class TreeNodeUtil {
     }
 
     /**
-     *     1
-     *    / \
-     *   2   5
-     *  / \   \
-     * 3   4   6
+     * @return
      */
     public static TreeNode tree8() {
         TreeNode node1 = new TreeNode(1);
@@ -145,13 +156,7 @@ public class TreeNodeUtil {
     }
 
     /**
-     *         1
-     *       /   \
-     *      2     5
-     *     / \   / \
-     *    3   4 6   7
-     *   /           \
-     *  8             9
+     * @return
      */
     public static TreeNode tree9() {
         TreeNode node1 = new TreeNode(1);
@@ -175,12 +180,7 @@ public class TreeNodeUtil {
     }
 
     /**
-     *     1
-     *    / \
-     *   2   2
-     *  / \
-     * 3   3
-     *
+     * @return
      */
     public static TreeNode tree10() {
         TreeNode node11 = new TreeNode(1);
@@ -196,12 +196,7 @@ public class TreeNodeUtil {
     }
 
     /**
-     *       40
-     *    /     \
-     *   20     60
-     *  /  \   /  \
-     * 10  30 50  70
-     *
+     * @return
      */
     public static TreeNode tree11() {
         TreeNode node10 = new TreeNode(10);
@@ -221,14 +216,7 @@ public class TreeNodeUtil {
     }
 
     /**
-     *       50
-     *    /     \
-     *   30     70
-     *  /  \   /  \
-     * 20  40 60  80
-     *             \
-     *             90
-     *
+     * @return
      */
     public static TreeNode tree12() {
         TreeNode node10 = new TreeNode(10);

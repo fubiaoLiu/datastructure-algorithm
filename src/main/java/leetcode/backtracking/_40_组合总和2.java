@@ -19,10 +19,20 @@ import java.util.*;
  * [1, 1, 6]
  * ]
  * <p>
+ * 示例 2:
+ * 输入: candidates = [2,5,2,1,2], target = 5,
+ * 所求解集为:
+ * [
+ *   [1,2,2],
+ *   [5]
+ * ]
+ * <p>
+ * Related Topics 数组 回溯算法
+ * <p>
  * https://leetcode-cn.com/problems/combination-sum-ii
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/5
+ * @author FuBiaoLiu
+ * @since 2020/2/5
  */
 public class _40_组合总和2 {
     private int[] candidates;

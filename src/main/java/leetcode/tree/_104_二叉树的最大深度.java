@@ -11,11 +11,22 @@ import java.util.Queue;
  * <p>
  * 说明: 叶子节点是指没有子节点的节点。
  * <p>
+ * 示例：
+ * 给定二叉树 [3,9,20,null,null,15,7]，
+ *   3
+ *  / \
+ * 9  20
+ *   /  \
+ *  15   7
+ * 返回它的最大深度 3 。
+ * <p>
+ * Related Topics 树 深度优先搜索 递归
+ * <p>
  * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
  * <p>
  *
- * @author: FuBiaoLiu
- * @date: 2019/12/31
+ * @author FuBiaoLiu
+ * @since 2019/12/31
  */
 public class _104_二叉树的最大深度 {
     /**

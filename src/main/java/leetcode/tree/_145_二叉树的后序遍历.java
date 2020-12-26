@@ -8,11 +8,24 @@ import java.util.List;
 /**
  * 给定一个二叉树，返回它的后序遍历
  * <p>
+ * 示例:
+ * 输入: [1,null,2,3]
+ * 1
+ *  \
+ *   2
+ *  /
+ * 3
+ * 输出: [3,2,1]
+ * <p>
+ * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
+ * <p>
+ * Related Topics 栈 树
+ * <p>
  * https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
  * <p>
  *
- * @author: FuBiaoLiu
- * @date: 2019/12/30
+ * @author FuBiaoLiu
+ * @since 2019/12/30
  */
 public class _145_二叉树的后序遍历 {
     /**

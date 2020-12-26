@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @description: _63_不同路径2测试类
- * @author: liufb
+ * @author liufb
  * @create: 2020/5/18 10:32
  **/
 public class _63_Test {

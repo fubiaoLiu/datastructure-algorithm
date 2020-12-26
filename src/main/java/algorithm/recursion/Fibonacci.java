@@ -2,8 +2,8 @@ package algorithm.recursion;
 
 /**
  * @description: 斐波那契数列
- * @author: FuBiaoLiu
- * @date: 2020/2/3
+ * @author FuBiaoLiu
+ * @since 2020/2/3
  */
 public class Fibonacci {
     /**

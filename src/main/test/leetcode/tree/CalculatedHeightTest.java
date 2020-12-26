@@ -1,6 +1,7 @@
 package leetcode.tree;
 
 import org.junit.jupiter.api.Test;
+import utils.TreeNodeUtil;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

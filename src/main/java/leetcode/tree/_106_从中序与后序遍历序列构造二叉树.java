@@ -8,11 +8,27 @@ import java.util.Map;
 /**
  * 根据一棵树的中序遍历与后序遍历构造二叉树。
  * <p>
+ * 注意:
+ * 你可以假设树中没有重复的元素。
+ * <p>
+ * 例如，给出
+ * 中序遍历 inorder = [9,3,15,20,7]
+ * 后序遍历 postorder = [9,15,7,20,3]
+ * <p>
+ * 返回如下的二叉树：
+ *      3
+ *    / \
+ *   9  20
+ *     /  \
+ *    15   7
+ * <p>
+ * Related Topics 树 深度优先搜索 数组
+ * <p>
  * https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
  * <p>
  *
- * @author: FuBiaoLiu
- * @date: 2020/1/3
+ * @author FuBiaoLiu
+ * @since 2020/1/3
  */
 public class _106_从中序与后序遍历序列构造二叉树 {
     public TreeNode buildTree1(int[] inorder, int[] postorder) {

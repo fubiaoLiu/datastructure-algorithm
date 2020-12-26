@@ -11,10 +11,14 @@ package leetcode.sort;
  * 输入：nums = [5,1,1,2,0,0]
  * 输出：[0,0,1,1,2,5]
  * <p>
+ * 提示：
+ * 1 <= nums.length <= 50000
+ * -50000 <= nums[i] <= 50000
+ * <p>
  * https://leetcode-cn.com/problems/sort-an-array
  *
- * @author: FuBiaoLiu
- * @date: 2020/3/31
+ * @author FuBiaoLiu
+ * @since 2020/3/31
  */
 public class _912_排序树组 {
     private int[] nums;

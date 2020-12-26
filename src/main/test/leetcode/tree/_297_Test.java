@@ -1,8 +1,9 @@
 package leetcode.tree;
 
 import org.junit.jupiter.api.Test;
+import utils.TreeNodeUtil;
 
-import static leetcode.tree.Assertions.assertTreeEquals;
+import static utils.Assertions.assertTreeEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class _297_Test {

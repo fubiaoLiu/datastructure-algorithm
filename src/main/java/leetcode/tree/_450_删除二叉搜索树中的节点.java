@@ -8,11 +8,36 @@ package leetcode.tree;
  * 如果找到了，删除它。
  * 说明： 要求算法时间复杂度为 O(h)，h 为树的高度。
  * <p>
+ * 示例:
+ * root = [5,3,6,2,4,null,7]
+ * key = 3
+ *     5
+ *    / \
+ *   3   6
+ *  / \   \
+ * 2   4   7
+ * <p>
+ * 给定需要删除的节点值是 3，所以我们首先找到 3 这个节点，然后删除它。
+ * 一个正确的答案是 [5,4,6,2,null,null,7], 如下图所示。
+ *     5
+ *    / \
+ *   4   6
+ *  /     \
+ * 2       7
+ * 另一个正确答案是 [5,2,6,null,4,null,7]。
+ *     5
+ *    / \
+ *   2   6
+ *    \   \
+ *     4   7
+ * <p>
+ * Related Topics 树
+ * <p>
  * https://leetcode-cn.com/problems/delete-node-in-a-bst
  * <p>
  *
- * @author: FuBiaoLiu
- * @date: 2019/12/30
+ * @author FuBiaoLiu
+ * @since 2019/12/30
  */
 public class _450_删除二叉搜索树中的节点 {
     public TreeNode deleteNode(TreeNode root, int key) {

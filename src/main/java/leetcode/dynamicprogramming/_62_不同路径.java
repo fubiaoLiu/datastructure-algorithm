@@ -7,9 +7,36 @@ package leetcode.dynamicprogramming;
  * <p>
  * 问总共有多少条不同的路径？
  * <p>
+ * 示例 1：
+ * 输入：m = 3, n = 7
+ * 输出：28
+ * <p>
+ * 示例 2：
+ * 输入：m = 3, n = 2
+ * 输出：3
+ * 解释：
+ * 从左上角开始，总共有 3 条路径可以到达右下角。
+ * 1. 向右 -> 向右 -> 向下
+ * 2. 向右 -> 向下 -> 向右
+ * 3. 向下 -> 向右 -> 向右
+ * <p>
+ * 示例 3：
+ * 输入：m = 7, n = 3
+ * 输出：28
+ * <p>
+ * 示例 4：
+ * 输入：m = 3, n = 3
+ * 输出：6
+ * <p>
+ * 提示：
+ * 1 <= m, n <= 100
+ * 题目数据保证答案小于等于 2 * 109
+ * <p>
+ * Related Topics 数组 动态规划
+ * <p>
  * https://leetcode-cn.com/problems/unique-paths
  *
- * @author: liufb
+ * @author liufb
  * @create: 2020/5/18 10:35
  **/
 public class _62_不同路径 {

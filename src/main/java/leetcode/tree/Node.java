@@ -3,9 +3,10 @@ package leetcode.tree;
 import java.util.List;
 
 /**
- * @description: N叉树节点
- * @author: FuBiaoLiu
- * @date: 2020/1/2
+ * N叉树节点
+ *
+ * @author FuBiaoLiu
+ * @since 2020/1/2
  */
 class Node {
     public int val;

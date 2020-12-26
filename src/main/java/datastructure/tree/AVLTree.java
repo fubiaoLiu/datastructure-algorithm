@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 /**
  * @description: AVL树
- * @author: FuBiaoLiu
- * @date: 2020/1/10
+ * @author FuBiaoLiu
+ * @since 2020/1/10
  */
 public class AVLTree<E> extends BBST<E> {
     public AVLTree() {

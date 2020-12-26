@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 /**
  * @description: 堆抽象类
- * @author: FuBiaoLiu
- * @date: 2020/1/14
+ * @author FuBiaoLiu
+ * @since 2020/1/14
  */
 public abstract class AbstractHeap<E> implements Heap<E> {
     protected int size;

@@ -2,8 +2,8 @@ package datastructure.unionfind;
 
 /**
  * @description: 并查集 - Quick Union - 基于Rank优化
- * @author: FuBiaoLiu
- * @date: 2020/1/24
+ * @author FuBiaoLiu
+ * @since 2020/1/24
  */
 public class UnionFind_QU_R extends UnionFind_QU {
     protected int[] ranks;

@@ -2,8 +2,8 @@ package algorithm.sort;
 
 /**
  * @description: 冒泡排序：优化1 - 数组全局有序的情况
- * @author: FuBiaoLiu
- * @date: 2020/1/16
+ * @author FuBiaoLiu
+ * @since 2020/1/16
  */
 public class BubbleSort1<E extends Comparable<E>> extends Sort<E> {
     @Override

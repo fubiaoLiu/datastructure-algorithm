@@ -2,8 +2,8 @@ package algorithm.backtracking;
 
 /**
  * @description: 八皇后问题
- * @author: FuBiaoLiu
- * @date: 2020/2/4
+ * @author FuBiaoLiu
+ * @since 2020/2/4
  */
 public class Queen {
     /**

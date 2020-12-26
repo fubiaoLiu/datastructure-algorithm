@@ -23,6 +23,8 @@ import java.util.List;
  * <p>
  * 说明: 不要使用类的成员 / 全局 / 静态变量来存储状态，你的序列化和反序列化算法应该是无状态的。
  * <p>
+ * Related Topics 树 设计
+ * <p>
  * https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
  *
  * @author Fubiao.Liu

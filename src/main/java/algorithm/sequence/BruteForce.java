@@ -3,8 +3,8 @@ package algorithm.sequence;
 /**
  * 蛮力算法
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/8
+ * @author FuBiaoLiu
+ * @since 2020/2/8
  */
 public class BruteForce {
     /**

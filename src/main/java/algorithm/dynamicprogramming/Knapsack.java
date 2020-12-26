@@ -9,8 +9,8 @@ package algorithm.dynamicprogramming;
  * 假设 values 是价值数组，weights 是重量数组
  * 编号为 k 的物品，价值是 values[k]，重量是 weights[k]，k ∈ [0, n)
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/6
+ * @author FuBiaoLiu
+ * @since 2020/2/6
  */
 public class Knapsack {
     /**

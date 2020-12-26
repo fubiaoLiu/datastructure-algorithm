@@ -5,11 +5,32 @@ package leetcode.tree;
  * <p>
  * 注意，可能存在多种有效的插入方式，只要树在插入后仍保持为二叉搜索树即可。 你可以返回任意有效的结果。
  * <p>
+ * 示例 1：
+ * 输入：root = [4,2,7,1,3], val = 5
+ * 输出：[4,2,7,1,3,5]
+ * 解释：另一个满足题目要求可以通过的树是：
+ * <p>
+ * 示例 2：
+ * 输入：root = [40,20,60,10,30,50,70], val = 25
+ * 输出：[40,20,60,10,30,50,70,null,null,25]
+ * <p>
+ * 示例 3：
+ * 输入：root = [4,2,7,1,3,null,null,null,null,null,null], val = 5
+ * 输出：[4,2,7,1,3,5]
+ * <p>
+ * 提示：
+ * 给定的树上的节点数介于 0 和 10^4 之间
+ * 每个节点都有一个唯一整数值，取值范围从 0 到 10^8
+ * -10^8 <= val <= 10^8
+ * 新值和原始二叉搜索树中的任意节点值都不同
+ * <p>
+ * Related Topics 树
+ * <p>
  * https://leetcode-cn.com/problems/insert-into-a-binary-search-tree
  * <p>
  *
- * @author: FuBiaoLiu
- * @date: 2020/1/3
+ * @author FuBiaoLiu
+ * @since 2020/1/3
  */
 public class _701_二叉搜索树中的插入操作 {
     /**

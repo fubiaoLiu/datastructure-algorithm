@@ -2,8 +2,8 @@ package datastructure.heap;
 
 /**
  * @description: 堆顶层接口
- * @author: FuBiaoLiu
- * @date: 2020/1/14
+ * @author FuBiaoLiu
+ * @since 2020/1/14
  */
 public interface Heap<E> {
     void add(E element);

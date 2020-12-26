@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 /**
  * @description: 红黑树
- * @author: FuBiaoLiu
- * @date: 2020/1/10
+ * @author FuBiaoLiu
+ * @since 2020/1/10
  */
 public class RBTree<E> extends BBST<E> {
     private static final boolean RED = true;

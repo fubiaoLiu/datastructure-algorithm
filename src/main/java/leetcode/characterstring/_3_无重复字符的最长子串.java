@@ -27,6 +27,8 @@ package leetcode.characterstring;
  * 0 <= s.length <= 5 * 104
  * s 由英文字母、数字、符号和空格组成
  * <p>
+ * Related Topics 哈希表 双指针 字符串 Sliding Window
+ * <p>
  * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
  *
  * @author liufb
@@ -39,7 +41,7 @@ public class _3_无重复字符的最长子串 {
      * @param s 母串
      * @return 最长子串长度
      */
-    public int longOfLongestSubstring(String s) {
+    public int longOfLongestSubstring1(String s) {
         if (s == null || s.isEmpty()) {
             return 0;
         }
@@ -62,6 +64,31 @@ public class _3_无重复字符的最长子串 {
             lastIndexArray[ascii] = i;
         }
 //        System.out.println(text.substring(maxStart - 1, maxStart + max - 1));
+        return max;
+    }
+
+    public int longOfLongestSubstring(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int[] lastIndexes = new int[128];
+        for (int i = 0; i < lastIndexes.length; i++) {
+            lastIndexes[i] = -1;
+        }
+        char[] chars = s.toCharArray();
+        lastIndexes[chars[0]] = 0;
+        int max = 1;
+        int begin = 0;
+        int ascii, lastIndex;
+        for (int i = 1; i < chars.length; i++) {
+            ascii = chars[i];
+            lastIndex = lastIndexes[ascii];
+            if (lastIndex >= begin) {
+                begin = lastIndex + 1;
+            }
+            lastIndexes[ascii] = i;
+            max = Math.max(i - begin + 1, max);
+        }
         return max;
     }
 }

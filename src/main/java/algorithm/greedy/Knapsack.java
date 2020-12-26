@@ -13,8 +13,8 @@ import java.util.List;
  * ① 价值主导：优先选择价值最高的物品放进背包
  * ② 重量主导：优先选择重量最轻的物品放进背包
  * ③ 价值密度主导：优先选择价值密度最高的物品放进背包（价值密度 = 价值 / 重量）
- * @author: FuBiaoLiu
- * @date: 2020/2/4
+ * @author FuBiaoLiu
+ * @since 2020/2/4
  */
 public class Knapsack {
     public double pack(String title, Comparator<Article> cmp) {

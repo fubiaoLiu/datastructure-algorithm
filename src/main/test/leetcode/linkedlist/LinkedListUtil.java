@@ -2,8 +2,8 @@ package leetcode.linkedlist;
 
 /**
  * @description: 链表工具类
- * @author: FuBiaoLiu
- * @date: 2020/1/14
+ * @author FuBiaoLiu
+ * @since 2020/1/14
  */
 public class LinkedListUtil {
     public static ListNode list0() {

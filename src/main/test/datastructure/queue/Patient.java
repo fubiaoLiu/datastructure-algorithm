@@ -2,8 +2,8 @@ package datastructure.queue;
 
 /**
  * @description: 病人
- * @author: FuBiaoLiu
- * @date: 2020/1/14
+ * @author FuBiaoLiu
+ * @since 2020/1/14
  */
 public class Patient implements Comparable {
     private String name;

@@ -16,9 +16,14 @@ import java.util.List;
  * ]
  * 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。
  * <p>
+ * 说明：
+ * 如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。
+ * <p>
+ * Related Topics 数组 动态规划
+ * <p>
  * https://leetcode-cn.com/problems/triangle
  *
- * @author: liufb
+ * @author liufb
  * @create: 2020/5/18 11:03
  **/
 public class _120_三角形最小路径和 {

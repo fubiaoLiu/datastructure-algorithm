@@ -2,8 +2,8 @@ package algorithm.sort;
 
 /**
  * @description: 插入排序
- * @author: FuBiaoLiu
- * @date: 2020/1/17
+ * @author FuBiaoLiu
+ * @since 2020/1/17
  */
 public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
     @Override

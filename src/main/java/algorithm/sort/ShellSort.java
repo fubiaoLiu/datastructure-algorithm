@@ -6,8 +6,8 @@ import java.util.List;
 
 /**
  * @description: 希尔排序
- * @author: FuBiaoLiu
- * @date: 2020/1/17
+ * @author FuBiaoLiu
+ * @since 2020/1/17
  */
 public class ShellSort<E extends Comparable<E>> extends Sort<E> {
     @Override

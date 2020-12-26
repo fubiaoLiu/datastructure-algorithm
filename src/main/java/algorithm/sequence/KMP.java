@@ -6,8 +6,8 @@ package algorithm.sequence;
  * 最坏时间复杂度：O(n + m)
  * 空间复杂度：O(m)
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/8
+ * @author FuBiaoLiu
+ * @since 2020/2/8
  */
 public class KMP {
     /**

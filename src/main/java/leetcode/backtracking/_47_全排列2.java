@@ -14,17 +14,23 @@ import java.util.*;
  * [2,1,1]
  * ]
  * <p>
+ * 提示：
+ * 1 <= nums.length <= 8
+ * -10 <= nums[i] <= 10
+ * <p>
+ * Related Topics 回溯算法
+ * <p>
  * https://leetcode-cn.com/problems/permutations-ii
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/5
+ * @author FuBiaoLiu
+ * @since 2020/2/5
  */
 public class _47_全排列2 {
     private int[] nums;
     private int len;
     private List<List<Integer>> result;
 
-    public List<List<Integer>> permuteUnique(int[] nums) {
+    public List<List<Integer>> permuteUnique1(int[] nums) {
         if (nums == null || nums.length == 0) {
             return null;
         }
@@ -59,5 +65,56 @@ public class _47_全排列2 {
 
     private void setResult(Deque<Integer> stack) {
         result.add(new ArrayList<>(stack));
+    }
+    // ------------------第三季练习------------------
+
+    /**
+     * 每个元素和其他元素交换一次
+     */
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return null;
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(result, nums, 0);
+        return result;
+    }
+
+    private void dfs(List<List<Integer>> result, int[] nums, int level) {
+        if (level == nums.length) {
+            List<Integer> list = new ArrayList<>(nums.length);
+            for (int i = 0; i < nums.length; i++) {
+                list.add(nums[i]);
+            }
+            result.add(list);
+            return;
+        }
+        for (int i = level; i < nums.length; i++) {
+            // 保证一个数字在level位置只会出现一次
+            if (isRepeat(nums, level, i)) {
+                continue;
+            }
+            swap(nums, level, i);
+            dfs(result, nums, level + 1);
+            swap(nums, level, i);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    /**
+     * 如果level到i之间有和nums[i]相同的元素，则表示level已经和nums[i]相等的元素交换过，再交换就重复了
+     */
+    private boolean isRepeat(int[] nums, int level, int i) {
+        for (int j = level; j < i; j++) {
+            if (nums[j] == nums[i]) {
+                return true;
+            }
+        }
+        return false;
     }
 }

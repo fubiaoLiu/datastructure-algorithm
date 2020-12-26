@@ -2,8 +2,8 @@ package algorithm.sort;
 
 /**
  * @description: 归并排序
- * @author: FuBiaoLiu
- * @date: 2020/1/17
+ * @author FuBiaoLiu
+ * @since 2020/1/17
  */
 public class MergeSort<E extends Comparable<E>> extends Sort<E> {
     private E[] leftArray;

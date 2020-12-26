@@ -12,10 +12,12 @@ package leetcode.dynamicprogramming;
  * 输入: "cbbd"
  * 输出: "bb"
  * <p>
+ * Related Topics 字符串 动态规划
+ * <p>
  * https://leetcode-cn.com/problems/longest-palindromic-substring
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/11
+ * @author FuBiaoLiu
+ * @since 2020/2/11
  */
 public class _5_最长回文子串 {
     /**
@@ -24,9 +26,9 @@ public class _5_最长回文子串 {
      * @param s
      * @return
      */
-    public String longestPalindrome(String s) {
-        if (s == null || s.length() == 0) {
-            return "";
+    public String longestPalindrome2(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
         }
         char[] chars = s.toCharArray();
         int len = chars.length;
@@ -56,8 +58,8 @@ public class _5_最长回文子串 {
      * 第一版
      */
     public String longestPalindrome1(String s) {
-        if (s == null || s.length() == 0) {
-            return "";
+        if (s == null || s.length() <= 1) {
+            return s;
         }
         char[] chars = s.toCharArray();
         int len = chars.length;
@@ -88,8 +90,8 @@ public class _5_最长回文子串 {
      */
     @Deprecated
     public String longestPalindromeDeprecated(String s) {
-        if (s == null || s.length() == 0) {
-            return "";
+        if (s == null || s.length() <= 1) {
+            return s;
         }
         char[] chars = s.toCharArray();
         int len = chars.length;
@@ -146,5 +148,182 @@ public class _5_最长回文子串 {
         }
 
         return s.substring(begins[max], begins[max] + lens[max]);
+    }
+
+    // ------------------第三季练习-------------------
+
+    /**
+     * (Manacher)马拉车
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     */
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        char[] oldCs = s.toCharArray();
+        char[] chars = preprocess(oldCs);
+        int[] m = new int[chars.length];
+        int maxIdx = 1;
+        int r = 1, c = 0, li;
+        int lastIdx = chars.length - 3;
+        for (int i = 2; i <= lastIdx; i++) {
+            if (r > i) {
+                li = (c << 1) - i;
+                m[i] = (i + m[li] <= r) ? m[li] : (r - i);
+            }
+            while (chars[i - m[i] - 1] == chars[i + m[i] + 1]) {
+                m[i]++;
+            }
+            if (m[i] > m[maxIdx]) {
+                maxIdx = i;
+            }
+            if (i + m[i] > r) {
+                r = i + m[i];
+                c = i;
+            }
+        }
+
+        int begin = (maxIdx - m[maxIdx]) >> 1;
+        return new String(oldCs, begin, m[maxIdx]);
+    }
+
+    public char[] preprocess(char[] oldCs) {
+        char[] chars = new char[(oldCs.length << 1) + 3];
+        chars[0] = '^';
+        chars[1] = '#';
+        for (int i = 0; i < oldCs.length; i++) {
+            int idx = (i << 1) + 2;
+            chars[idx] = oldCs[i];
+            chars[idx + 1] = '#';
+        }
+        chars[chars.length - 1] = '*';
+        return chars;
+    }
+
+    /**
+     * 扩展中心2
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(1)
+     */
+    public String longestPalindromeEx2(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        int maxLen = 1;
+        int begin = 0;
+        int i = 0;
+        while (i < chars.length) {
+            int l = i - 1;
+            int r = i;
+            while (++r < chars.length && chars[r] == chars[i]) {
+            }
+            i = r;
+            while (l >= 0 && r < chars.length && chars[l] == chars[r]) {
+                l--;
+                r++;
+            }
+            int len = r - l - 1;
+            if (len > maxLen) {
+                maxLen = len;
+                begin = l + 1;
+            }
+        }
+        return new String(chars, begin, maxLen);
+    }
+
+    /**
+     * 扩展中心
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(1)
+     */
+    public String longestPalindromeEx1(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        int maxLen = 1;
+        int begin = 0;
+        for (int i = 1; i < chars.length; i++) {
+            int len1 = palindrome(chars, i - 1, i + 1);
+            int len2 = palindrome(chars, i, i + 1);
+            len1 = Math.max(len1, len2);
+            if (len1 > maxLen) {
+                maxLen = len1;
+                begin = i - ((len1 - 1) >> 1);
+            }
+        }
+        if (maxLen < 2 && chars[0] == chars[1]) {
+            maxLen = 2;
+            begin = 0;
+        }
+
+        return new String(chars, begin, maxLen);
+    }
+
+    /**
+     * @return 从chars数组中l, r开始向两边扩展扫描到的最长回文子串的长度
+     */
+    private int palindrome(char[] chars, int l, int r) {
+        while (l >= 0 && r < chars.length && chars[l] == chars[r]) {
+            l--;
+            r++;
+        }
+        return r - l - 1;
+    }
+
+    /**
+     * 一维数组
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(n)
+     */
+    public String longestPalindromeDp2(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        boolean[] dp = new boolean[chars.length];
+        int max = 1;
+        int begin = 0;
+        for (int i = chars.length - 1; i >= 0; i--) {
+            dp[i] = true;
+            for (int j = chars.length - 1; j > i; j--) {
+                int len = j - i + 1;
+                dp[j] = chars[i] == chars[j] && (len == 2 || dp[j - 1]);
+                if (dp[j] && len > max) {
+                    max = len;
+                    begin = i;
+                }
+            }
+        }
+        return new String(chars, begin, max);
+    }
+
+    /**
+     * 二维数组
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(n^2)
+     */
+    public String longestPalindromeDp1(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        boolean[][] dp = new boolean[chars.length][chars.length];
+        int max = 1;
+        int begin = 0;
+        for (int i = chars.length - 1; i >= 0; i--) {
+            dp[i][i] = true;
+            for (int j = i + 1; j < chars.length; j++) {
+                int len = j - i + 1;
+                dp[i][j] = chars[i] == chars[j] && (j - i == 1 || dp[i + 1][j - 1]);
+                if (dp[i][j] && len > max) {
+                    max = len;
+                    begin = i;
+                }
+            }
+        }
+        return new String(chars, begin, max);
     }
 }

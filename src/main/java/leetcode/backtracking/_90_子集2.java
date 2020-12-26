@@ -10,18 +10,20 @@ import java.util.*;
  * 输入: [1,2,2]
  * 输出:
  * [
- * [2],
- * [1],
- * [1,2,2],
- * [2,2],
- * [1,2],
- * []
+ *   [2],
+ *   [1],
+ *   [1,2,2],
+ *   [2,2],
+ *   [1,2],
+ *   []
  * ]
+ * <p>
+ * Related Topics 数组 回溯算法
  * <p>
  * https://leetcode-cn.com/problems/subsets-ii
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/5
+ * @author FuBiaoLiu
+ * @since 2020/2/5
  */
 public class _90_子集2 {
     private int[] nums;

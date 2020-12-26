@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @description: _120_三角形最小路径和测试类
- * @author: liufb
+ * @author liufb
  * @create: 2020/5/18 10:32
  **/
 public class _120_Test {

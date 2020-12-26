@@ -3,8 +3,8 @@ package algorithm.bloomfilter;
 /**
  * 布隆过滤器
  *
- * @author: FuBiaoLiu
- * @date: 2020/2/7
+ * @author FuBiaoLiu
+ * @since 2020/2/7
  */
 public class BloomFilter<T> {
     private double p;

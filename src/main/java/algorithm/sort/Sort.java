@@ -4,8 +4,8 @@ import java.text.DecimalFormat;
 
 /**
  * @description: 排序顶层父类
- * @author: FuBiaoLiu
- * @date: 2020/1/17
+ * @author FuBiaoLiu
+ * @since 2020/1/17
  */
 public abstract class Sort<E extends Comparable<E>> implements Comparable<Sort<E>> {
     protected E[] array;
