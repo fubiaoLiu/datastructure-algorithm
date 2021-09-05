@@ -1,5 +1,7 @@
 package leetcode.dynamicprogramming;
 
+import java.util.Arrays;
+
 /**
  * 给你一个 只包含正整数 的 非空 数组 nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
  * <p>
@@ -22,11 +24,16 @@ package leetcode.dynamicprogramming;
  * https://leetcode-cn.com/problems/partition-equal-subset-sum/
  *
  * @author Fubiao.Liu
- * @since 2021/5/18
- */
+ * @since 2021/6/7 16:24
+ **/
 public class _416_分割等和子集 {
+    /**
+     * 动态规划 - 二维数组
+     * 1、先计算平均值
+     * 2、转换为背包问题
+     */
     public boolean canPartition(int[] nums) {
-        if (nums.length < 2){
+        if (nums == null || nums.length <= 1) {
             return false;
         }
         int total = 0;
@@ -34,74 +41,72 @@ public class _416_分割等和子集 {
             total += num;
         }
         return (total & 1) == 0 && dp(nums, total >> 1);
-        // return (total & 1) == 0 && recursion(nums, 0, total >> 1);
     }
 
     /**
-     * 递归
-     * 包含很多重复计算，所以使用动态规划来优化
+     * 动态规划 - 二维数组 - 优化（二维数组大小为2）
+     * 背包问题
      */
-    private boolean recursion(int[] nums, int index, int target) {
-        if (target == 0) {
-            return true;
+    public boolean dp(int[] nums, int target) {
+        boolean[][] dp = new boolean[2][target + 1];
+        for (int i = 1; i <= nums.length; i++) {
+            for (int j = 1; j < dp[0].length; j++) {
+                int remain = j - nums[i - 1];
+                if (dp[(i - 1) & 1][j] || remain == 0 || (remain > 0 && dp[(i - 1) & 1][remain])) {
+                    dp[i & 1][j] = true;
+                }
+            }
+            if (dp[i & 1][target]) {
+                return true;
+            }
         }
-        if (index == nums.length - 1) {
-            return target == nums[index];
-        }
-        return recursion(nums, index + 1, target) | recursion(nums, index + 1, target - nums[index]);
-    }
-
-    /**
-     * 动态规划：一维数组
-     * dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]] || nums[i] == j
-     * -    0 1 2 3 4 5 6 7 8 9 10 11
-     * 0    0 0 0 0 0 0 0 0 0 0 0  0
-     * 1    0 1 0 0 0 0 0 0 0 0 0  0
-     * 5    0 1 0 0 0 1 1 0 0 0 0  0
-     * 5
-     * 11
-     */
-    private boolean dp(int[] nums, int target) {
         return false;
     }
 
     /**
-     * 动态规划：二维数组
-     * dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]] || nums[i] == j
-     * -    0 1 2 3 4 5 6 7 8 9 10 11
-     * 0    0 0 0 0 0 0 0 0 0 0 0  0
-     * 1    0 1 0 0 0 0 0 0 0 0 0  0
-     * 5    0 1 0 0 0 1 1 0 0 0 0  0
-     * 11   0 1 0 0 0 1 1 0 0 0 0  1
-     * 5
+     * 动态规划 - 二维数组
+     * 背包问题
      */
-    private boolean dp2(int[] nums, int target) {
-        boolean[][] dp = new boolean[2][target + 1];
-        for (int i = 1; i <= nums.length; i++) {
-            for (int j = 1; j <= target; j++) {
-                dp[i & 1][j] = dp[(i - 1) & 1][j] || (j >= nums[i - 1] && dp[(i - 1) & 1][j - nums[i - 1]]) || nums[i - 1] == j;
+    public boolean dp1(int[] nums, int target) {
+        boolean[][] dp = new boolean[nums.length + 1][target + 1];
+        for (int i = 1; i < dp.length; i++) {
+            for (int j = 1; j < dp[0].length; j++) {
+                int remain = j - nums[i - 1];
+                if (dp[i - 1][j] || remain == 0 || (remain > 0 && dp[i - 1][remain])) {
+                    dp[i][j] = true;
+                }
+            }
+            if (dp[i][target]) {
+                return true;
             }
         }
-        return dp[nums.length & 1][target];
+        return false;
     }
 
     /**
-     * 动态规划：多维数组
-     * dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]] || nums[i] == j
-     * -    0 1 2 3 4 5 6 7 8 9 10 11
-     * 0    0 0 0 0 0 0 0 0 0 0 0  0
-     * 1    0 1 0 0 0 0 0 0 0 0 0  0
-     * 5    0 1 0 0 0 1 1 0 0 0 0  0
-     * 11   0 1 0 0 0 1 1 0 0 0 0  1
-     * 5
+     * 题解
      */
-    private boolean dp1(int[] nums, int target) {
-        boolean[][] dp = new boolean[nums.length + 1][target + 1];
-        for (int i = 1; i < dp.length; i++) {
-            for (int j = 1; j <= target; j++) {
-                dp[i][j] = dp[i - 1][j] || (j >= nums[i - 1] && dp[i - 1][j - nums[i - 1]]) || nums[i - 1] == j;
+    public boolean canPartition1(int[] nums) {
+        int sum1 = 0, sum2 = 0;
+        Arrays.sort(nums);
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (sum1 < sum2) {
+                sum1 += nums[i];
+            } else {
+                sum2 += nums[i];
             }
         }
-        return dp[nums.length][target];
+        if (sum1 == sum2) return true;
+        if ((sum1 + sum2) % 2 == 1) return false;
+        sum1 = (sum1 + sum2) / 2;
+        sum2 = sum1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (sum1 < nums[i]) {
+                sum2 -= nums[i];
+            } else {
+                sum1 -= nums[i];
+            }
+        }
+        return sum1 == sum2;
     }
 }

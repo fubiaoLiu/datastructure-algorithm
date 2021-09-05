@@ -1,8 +1,5 @@
 package leetcode.stack;
 
-import java.util.Deque;
-import java.util.LinkedList;
-
 /**
  * 实现一个基本的计算器来计算一个简单的字符串表达式的值。
  * 字符串表达式可以包含左括号 ( ，右括号 )，加号 + ，减号 -，非负整数和空格 。
@@ -32,37 +29,108 @@ import java.util.LinkedList;
  * @since 2019/12/28
  */
 public class _224_基本计算器 {
+    /**
+     * 递归
+     * 扫描到左括号就进入下一个递归，扫描到右括号就退出当前调用，返回当前子表达式的计算结果
+     *
+     * @param s 表达式字符串
+     * @return 计算结果
+     */
     public int calculate(String s) {
-        Deque<Object> stack = new LinkedList<>();
-        char[] chars = s.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            Object last = stack.pop();
-            // if (Integer.parseInt(last))
-            //leetcode.stack.
-        }
-        return 0;
+        return calculate(s.toCharArray(), 0)[0];
     }
 
-    /*private String[] infixConvertPostfixExp(String s) {
-        Deque<String> leetcode.stack = new LinkedList<>();
-        char[] chars = s.toCharArray();
-        int slow = 0;
-        int fast = 0;
-        StringBuilder tmp = new StringBuilder();
-        for (int i = 0; i < chars.length; i++) {
-            if (Character.isDigit(chars[fast])) {
-                tmp.append(chars[fast]);
-                fast++;
+    public int[] calculate(char[] chars, int start) {
+        // result[0]: 子表达式的计算结果
+        // result[1]: 子表达式的结束索引
+        int[] result = new int[2];
+        char operate = ' ';
+        int lathNumber = 0;
+        for (int i = start; i < chars.length; i++) {
+            if (chars[i] == ' ') {
+                continue;
+            }
+            int current = chars[i] - '0';
+            if (chars[i] == '(') {
+                int[] subResult = calculate(chars, i + 1);
+                lathNumber = subResult[0];
+                i = subResult[1];
+            } else if (chars[i] == ')') {
+                result[1] = i;
+                return result;
+            } else if (chars[i] == '-' || chars[i] == '+') {
+                operate = chars[i];
+                lathNumber = 0;
+                continue;
             } else {
-                leetcode.stack.push(tmp.toString());
-                tmp.delete(0, tmp.length());
-                fast++;
-                slow = fast;
+                lathNumber = lathNumber * 10 + current;
+                if (i + 1 < chars.length && chars[i + 1] >= '0' && chars[i + 1] <= '9') {
+                    // 如果当前是数字，下一个也是数字，直接进入下一个循环，这两个数字应该组装为同一个数字
+                    continue;
+                }
+            }
+            if (operate == ' ') {
+                result[0] = lathNumber;
+            } else if (operate == '-') {
+                result[0] -= lathNumber;
+                operate = ' ';
+            } else if (operate == '+') {
+                result[0] += lathNumber;
+                operate = ' ';
             }
         }
-    }*/
+        return result;
+    }
 
-    public static void main(String[] args) {
-        System.out.println('1' == 49);
+    /**
+     * lc耗时最短范例
+     * @param s 表达式字符串
+     * @return 计算结果
+     */
+    public int calculate1(String s) {
+        if (s.length() == 0) {
+            return 0;
+        }
+        return dfs(s.toCharArray(), 0)[0];
+    }
+
+    private int[] dfs(char[] chars, int index) {
+        if (index >= chars.length) {
+            return new int[]{0, index};
+        }
+
+        int result = 0;
+        int lastNumber = 0;
+        int lastFlag = 1;
+        int i = index;
+        for (; i < chars.length; i++) {
+            switch (chars[i]) {
+                case '(':
+                    int[] innerResult = dfs(chars, i + 1);
+                    result += lastFlag * innerResult[0];
+                    i = innerResult[1];
+                    break;
+                case ')':
+                    result += lastFlag * lastNumber;
+                    return new int[]{result, i};
+                case '+':
+                    result += lastFlag * lastNumber;
+                    lastNumber = 0;
+                    lastFlag = 1;
+                    break;
+                case '-':
+                    result += lastFlag * lastNumber;
+                    lastNumber = 0;
+                    lastFlag = -1;
+                    break;
+                case ' ':
+                    break;
+                default:
+                    lastNumber = lastNumber * 10 + (chars[i] - '0');
+                    break;
+            }
+        }
+        result += lastFlag * lastNumber;
+        return new int[]{result, i};
     }
 }

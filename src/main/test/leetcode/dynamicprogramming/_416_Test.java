@@ -19,4 +19,16 @@ public class _416_Test {
         int[] nums = {1, 2, 3, 5};
         assertFalse(obj.canPartition(nums));
     }
+
+    @Test
+    public void test3() {
+        int[] nums = {1, 2, 5};
+        assertFalse(obj.canPartition(nums));
+    }
+
+    @Test
+    public void test4() {
+        int[] nums = {3, 3, 3, 4, 5};
+        assertTrue(obj.canPartition(nums));
+    }
 }

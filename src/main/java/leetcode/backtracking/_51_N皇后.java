@@ -45,8 +45,58 @@ public class _51_N皇后 {
         if (n <= 0) {
             return null;
         }
-        // TODO
-        return null;
+        // 初始化棋盘
+        char[][] checkerboard = new char[n][n];
+        for (char[] chars : checkerboard) {
+            Arrays.fill(chars, '.');
+        }
+        boolean[] col = new boolean[n];
+        int diagonalNum = (n << 1) - 1;
+        boolean[] leftDiagonal = new boolean[diagonalNum];
+        boolean[] rightDiagonal = new boolean[diagonalNum];
+        List<List<String>> result = new ArrayList<>();
+        dfs(checkerboard, result, col, leftDiagonal, rightDiagonal, n, 0);
+        return result;
+    }
+
+    /**
+     * 深度优先搜索
+     */
+    private void dfs(char[][] checkerboard, List<List<String>> result, boolean[] col,
+                     boolean[] leftDiagonal, boolean[] rightDiagonal, int n, int level) {
+        if (n == level) {
+            List<String> list = new ArrayList<>(n);
+            for (char[] chars : checkerboard) {
+                list.add(new String(chars));
+            }
+            result.add(list);
+        }
+        for (int i = 0; i < n; i++) {
+            if (canPut(col, leftDiagonal, rightDiagonal, n, level, i)) {
+                checkerboard[level][i] = 'Q';
+                setArray(col, leftDiagonal, rightDiagonal, n, level, i);
+                dfs(checkerboard, result, col, leftDiagonal, rightDiagonal, n, level + 1);
+                setArray(col, leftDiagonal, rightDiagonal, n, level, i);
+                checkerboard[level][i] = '.';
+            }
+        }
+    }
+
+    /**
+     * @return 是否可以摆放
+     */
+    private boolean canPut(boolean[] col, boolean[] leftDiagonal, boolean[] rightDiagonal, int n, int r, int c) {
+        return !col[c] && !leftDiagonal[c + r] && !rightDiagonal[r - c + n - 1];
+    }
+
+    /**
+     * 设置数组
+     */
+    private void setArray(boolean[] col, boolean[] leftDiagonal, boolean[] rightDiagonal, int n, int r, int c) {
+        col[c] = !col[c];
+        leftDiagonal[c + r] = !leftDiagonal[c + r];
+        int rightDiagonalIdx = r - c + n - 1;
+        rightDiagonal[rightDiagonalIdx] = !rightDiagonal[rightDiagonalIdx];
     }
 
     /**

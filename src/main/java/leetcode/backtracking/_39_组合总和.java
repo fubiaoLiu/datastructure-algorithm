@@ -35,7 +35,7 @@ public class _39_组合总和 {
     private int[] candidates;
     private int len;
 
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum1(int[] candidates, int target) {
         if (candidates == null || candidates.length == 0) {
             return null;
         }
@@ -66,5 +66,33 @@ public class _39_组合总和 {
 
     private void addResult(Deque<Integer> selected, List<List<Integer>> result) {
         result.add(new ArrayList<>(selected));
+    }
+
+    // ------------------第三季练习--------------------
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        if (candidates == null || target == 0) {
+            return null;
+        }
+        List<List<Integer>> result = new LinkedList<>();
+        Arrays.sort(candidates);
+        dfs(result, new LinkedList<>(), candidates, 0, target);
+        return result;
+    }
+
+    private void dfs(List<List<Integer>> result, Deque<Integer> deque, int[] candidates, int minIndex, int target) {
+        if (target == 0) {
+            result.add(new LinkedList<>(deque));
+            return;
+        }
+        for (int i = minIndex; i < candidates.length; i++) {
+            int remain = target - candidates[i];
+            if (remain < 0) {
+                break;
+            }
+            deque.offer(candidates[i]);
+            dfs(result, deque, candidates, i, remain);
+            deque.removeLast();
+        }
     }
 }
