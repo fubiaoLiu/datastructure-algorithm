@@ -9,7 +9,7 @@ import java.util.StringJoiner;
  * @since 2019/12/28
  */
 public class OptimizedArrayList<E> {
-    private static int DEFAULT_CAPACITY = 10;
+    private static final int DEFAULT_CAPACITY = 10;
     private E[] elements;
     private int first;
     private int size;
@@ -19,7 +19,7 @@ public class OptimizedArrayList<E> {
     }
 
     public OptimizedArrayList(int capacity) {
-        capacity = capacity < 0 ? 0 : capacity;
+        capacity = Math.max(capacity, 0);
         this.elements = (E[]) new Object[capacity];
     }
 

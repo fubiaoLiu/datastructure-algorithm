@@ -22,16 +22,16 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
         this(data, null);
     }
 
-    public BinaryHeap(Comparator comparator) {
+    public BinaryHeap(Comparator<E> comparator) {
         this(null, comparator);
     }
 
-    public BinaryHeap(E[] data, Comparator comparator) {
+    public BinaryHeap(E[] data, Comparator<E> comparator) {
         super(comparator);
 
         if (data != null && data.length != 0) {
             size = data.length;
-            int capacity = data.length > DEFAULT_CAPACITY ? data.length : DEFAULT_CAPACITY;
+            int capacity = Math.max(data.length, DEFAULT_CAPACITY);
             elements = (E[]) new Object[capacity];
             for (int i = 0; i < data.length; i++) {
                 elements[i] = data[i];

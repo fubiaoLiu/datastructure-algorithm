@@ -347,11 +347,11 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 
     private static class Node<E> {
         E element;
-        Node left;
-        Node right;
-        Node parent;
+        Node<E> left;
+        Node<E> right;
+        Node<E> parent;
 
-        public Node(E element, Node parent) {
+        public Node(E element, Node<E> parent) {
             this.element = element;
             this.parent = parent;
         }

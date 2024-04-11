@@ -16,7 +16,7 @@ public abstract class AbstractHeap<E> implements Heap<E> {
         this(null);
     }
 
-    public AbstractHeap(Comparator comparator) {
+    public AbstractHeap(Comparator<E> comparator) {
         this.comparator = comparator;
     }
 
